@@ -1,0 +1,55 @@
+@charset "utf-8";
+/*
+ * Klosh Web Development - Theme Styles
+ * This file combines colors-consolidated.css and darkMode.css
+ */
+
+/* Table of Contents
+01) COLOR SCHEMES - Primary and accent colors
+02) DARK MODE - Dark theme styles
+03) THEME VARIABLES - CSS variables for theming
+04) THEME TRANSITIONS - Smooth transitions between themes
+*/
+
+/* Import original styles to maintain all functionality */
+@import url('colors-consolidated.css');
+@import url('darkMode.css');
+
+/* Define theme variables for easier customization */
+:root {
+  --primary-color: #333;
+  --secondary-color: #666;
+  --accent-color: #39FF14;
+  --background-color: #fff;
+  --text-color: #333;
+  --border-color: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --transition-speed: 0.3s;
+}
+
+/* Dark mode variables */
+.dark-mode {
+  --primary-color: #f5f5f5;
+  --secondary-color: #ccc;
+  --background-color: #121212;
+  --text-color: #f5f5f5;
+  --border-color: rgba(255, 255, 255, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth transition between themes */
+body, a, p, h1, h2, h3, h4, h5, h6, div {
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease,
+              border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+}
+
+/* Ensure consistent accent color across themes */
+.accent-color, 
+.portfolio_title:hover, 
+.grax_tm_topbar .menu ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* Additional theme optimizations can be added here */

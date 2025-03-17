@@ -1,0 +1,52 @@
+@charset "utf-8";
+/*
+ * Klosh Web Development - Core Styles
+ * This file combines style.css, plugins.css, and custom.css
+ */
+
+/* Table of Contents
+01) BASE - Core styles and typography
+02) LAYOUT - Basic layout elements
+03) COMPONENTS - Reusable UI components
+04) ANIMATIONS - Keyframes and transitions
+05) UTILITIES - Helper classes
+*/
+
+/* Import original styles to maintain all functionality */
+@import url('style.css');
+@import url('plugins.css');
+@import url('custom.css');
+
+/* Fix for keyframes lint warning */
+@keyframes preloader {
+  0% { width: 0; }
+  50% { width: 50%; }
+  100% { width: 100%; }
+}
+
+/* Additional optimizations and fixes can be added here */
+
+/* Ensure proper z-index hierarchy */
+.grax_tm_topbar {
+  z-index: 100;
+}
+
+.grax_tm_mobile_menu {
+  z-index: 99;
+}
+
+.mouse-cursor {
+  z-index: 999;
+}
+
+/* Standardize transitions for better performance */
+a, button, .portfolio_item, .portfolio_image img {
+  transition: all 0.3s ease;
+}
+
+/* Fix for mobile menu positioning */
+@media (max-width: 1040px) {
+  .grax_tm_mobile_menu .mobile_menu_inner {
+    padding-top: 80px;
+  }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <title>Blog Post - Klosh</title>
+
+    <!-- STYLES -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/core.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="../css/theme.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="../css/components.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="../css/pages.css?v=2" />
+    <style>
+        /* Blog post specific styles */
+        .blog_single_wrap {
+            padding-top: 150px; /* Increased space between navbar and content */
+            padding-bottom: 60px; /* Added space at bottom of page */
+            max-width: 800px; /* Limit content width for better readability */
+            margin: 0 auto; /* Center the content */
+            padding-left: 30px; /* Increased side margins */
+            padding-right: 30px;
+        }
+        
+        .post-image {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .post-image img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            max-height: 500px; /* Limit image height */
+            object-fit: contain; /* Maintain aspect ratio */
+        }
+        
+        .post-title {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            text-align: center; /* Center the title */
+        }
+        
+        .post-meta {
+            margin-bottom: 30px;
+            color: #666;
+            text-align: center; /* Center the meta info */
+        }
+        
+        .post-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #333; /* Darker text for better readability */
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .post-share {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        
+        /* Link styles */
+        .post-content a,
+        .post-share a {
+            text-decoration: none;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .blog_single_wrap {
+                padding-top: 120px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .post-title {
+                font-size: 2em;
+            }
+            
+            .post-image img {
+                max-height: 400px; /* Slightly smaller images on mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader_line"></div>
+    </div>
+    <!-- /PRELOADER -->
+    
+    <!-- WRAPPER ALL -->
+    <div class="grax_tm_all_wrap" data-magic-cursor="hide" data-color="lime">
+        
+        <!-- TOPBAR -->
+        <div class="grax_tm_topbar">
+            <div class="container">
+                <div class="topbar_inner">
+                    <div class="logo">
+                        <a class="dark" href="../index.html"><img src="../img/logo/dark.png" alt="Klosh Logo Dark Version" /></a> 
+                        <a class="light" href="../index.html"><img src="../img/logo/logo.png" alt="Klosh Logo Light Version" /></a>  
+                    </div>
+                    <div class="menu">
+                        <ul class="anchor_nav" role="navigation" aria-label="Main Navigation">
+                            <li><a href="../index.html" aria-label="Go to Home page">Home</a></li>
+                            <li><a href="../index.html#news" aria-label="Go to News section">News</a></li>
+                            <li><a href="#" onclick="navigateToContact(event)" aria-label="Contact us">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /TOPBAR -->
+
+        <!-- CONTENT -->
+        <div class="grax_tm_content">
+            <!-- Blog Content -->
+            <div class="grax_tm_section">
+                <div class="container">
+                    <div class="blog_single_wrap">
+                        <div class="blog_single_content" role="article" aria-labelledby="post-title">
+                            <div class="post-meta">
+                                <div class="post-date"></div>
+                            </div>
+                            <h1 class="post-title" id="post-title"></h1>
+                            <div class="post-content"></div>
+                            <div class="post-share" aria-label="Share this post">
+                                <span>Share:</span>
+                                <a href="#" class="share-link" aria-label="Share on Facebook">
+                                    <img src="../img/svg/social/facebook.svg" alt="Share on Facebook" class="share-icon" loading="lazy" />
+                                </a>
+                                <a href="#" class="share-link" aria-label="Share on Twitter">
+                                    <img src="../img/svg/social/twitter.svg" alt="Share on Twitter" class="share-icon" loading="lazy" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /CONTENT -->
+        
+        <!-- MAGIC CURSOR -->
+        <div class="mouse-cursor cursor-outer"></div>
+        <div class="mouse-cursor cursor-inner"></div>
+        <!-- /MAGIC CURSOR -->
+        
+    </div>
+    <!-- / WRAPPER ALL -->
+    
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/init.js"></script>
+    <script src="../js/post.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/blog.js"></script>
+    <script>
+    // Direct function to handle contact navigation
+    function navigateToContact(e) {
+        e.preventDefault();
+        sessionStorage.setItem('scrollTarget', '#contact');
+        window.location.href = '../index.html';
+    }
+    
+    // Make sure the init.js handleCrossPageScroll function is called
+    jQuery(window).on('load', function() {
+        if(sessionStorage.getItem('scrollTarget')) {
+            handleCrossPageScroll();
+        }
+    });
+    </script>
+    <!-- /SCRIPTS -->
+</body>
+</html>

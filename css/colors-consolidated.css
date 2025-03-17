@@ -1,0 +1,288 @@
+/* 
+ * Consolidated Colors Stylesheet
+ * This file centralizes all color variables and color-related styles
+ * for consistent theming across the entire site
+ */
+
+/* ----------------------------------------
+   Color Variables
+   ---------------------------------------- */
+
+:root {
+    /* Primary Colors */
+    --primary-color: #000;             /* Black - Primary accent color */
+    --primary-hover: #333;             /* Dark gray - Hover state color */
+    --accent-color: #39FF14;           /* Neon Green - Secondary accent color */
+    
+    /* Text Colors */
+    --text-color: #767676;             /* Medium gray - Main text color */
+    --heading-color: #000;             /* Black - Heading text color */
+    --text-light: #ffffff;             /* White - Light text color */
+    --text-muted: #666666;             /* Medium gray - Secondary text color in light mode */
+    --text-muted-dark: #cccccc;        /* Light gray - Secondary text color in dark mode */
+    
+    /* Background Colors */
+    --bg-light: #ffffff;               /* White - Main background in light mode */
+    --bg-dark: #1a1a1a;                /* Dark gray - Main background in dark mode */
+    --bg-light-alt: #f8f9fa;           /* Light gray - Secondary background in light mode */
+    --bg-dark-alt: #2a2a2a;            /* Medium dark gray - Secondary background in dark mode */
+    
+    /* UI Element Colors */
+    --border-light: #dddddd;           /* Light gray - Border color in light mode */
+    --border-dark: #3a3a3a;            /* Dark gray - Border color in dark mode */
+    --shadow-light: rgba(0, 0, 0, 0.05); /* Light shadow for light mode */
+    --shadow-dark: rgba(0, 0, 0, 0.2);   /* Darker shadow for dark mode */
+    
+    /* Status Colors */
+    --success: #28a745;                /* Green - Success messages */
+    --error: #ff3333;                  /* Red - Error messages */
+    --warning: #ffc107;                /* Yellow - Warning messages */
+    --info: #17a2b8;                   /* Blue - Info messages */
+}
+
+/* ----------------------------------------
+   Light Mode Color Applications
+   ---------------------------------------- */
+
+/* Base Elements */
+body {
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+}
+
+p, span, li {
+    color: var(--text-color);
+}
+
+a {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* Buttons and Interactive Elements */
+.grax_tm_button a,
+.grax_tm_button[data-color="dark"] a,
+.grax_tm_button[data-color="light"] a {
+    background-color: var(--accent-color) !important;
+    color: var(--primary-color) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.grax_tm_button a:hover,
+.grax_tm_button[data-color="dark"] a:hover,
+.grax_tm_button[data-color="light"] a:hover {
+    background-color: var(--primary-hover) !important;
+    color: var(--text-light) !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Title Span Elements - Accent Color */
+.grax_tm_title_holder h3 span {
+    color: var(--accent-color);
+}
+
+/* Form Elements */
+input, textarea, select {
+    border-color: var(--border-light);
+    background-color: var(--bg-light);
+    color: var(--text-color);
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-color);
+}
+
+/* Cards and Containers */
+.portfolio_item, 
+.blog-posts .list_inner {
+    background-color: var(--bg-light);
+    box-shadow: 0 5px 20px var(--shadow-light);
+}
+
+.portfolio_item:hover, 
+.blog-posts .list_inner:hover {
+    box-shadow: 0 8px 25px var(--shadow-light);
+}
+
+/* Header and Navigation */
+.grax_tm_topbar {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px var(--shadow-light);
+}
+
+.grax_tm_topbar.animate {
+    background-color: var(--bg-light);
+}
+
+.grax_tm_topbar .menu ul li a {
+    color: var(--text-color);
+}
+
+/* Section Backgrounds */
+.grax_tm_about {
+    background-color: var(--bg-light-alt);
+}
+
+.grax_tm_portfolio,
+.grax_tm_news {
+    background-color: var(--bg-light);
+}
+
+/* Status Messages */
+.success-message {
+    color: var(--success);
+}
+
+.error-message {
+    color: var(--error);
+}
+
+.warning-message {
+    color: var(--warning);
+}
+
+.info-message {
+    color: var(--info);
+}
+
+/* ----------------------------------------
+   Dark Mode Color Applications
+   ---------------------------------------- */
+
+body.dark {
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+}
+
+body.dark h1, 
+body.dark h2, 
+body.dark h3, 
+body.dark h4, 
+body.dark h5, 
+body.dark h6 {
+    color: var(--heading-color);
+}
+
+body.dark p, 
+body.dark span, 
+body.dark li {
+    color: var(--text-muted-dark);
+}
+
+body.dark a {
+    color: var(--primary-color);
+}
+
+body.dark a:hover {
+    color: var(--primary-hover);
+}
+
+/* Buttons and Interactive Elements */
+body.dark .grax_tm_button a,
+body.dark .grax_tm_button[data-color="dark"] a,
+body.dark .grax_tm_button[data-color="light"] a {
+    background-color: var(--accent-color) !important;
+    color: var(--primary-color) !important;
+}
+
+body.dark .grax_tm_button a:hover,
+body.dark .grax_tm_button[data-color="dark"] a:hover,
+body.dark .grax_tm_button[data-color="light"] a:hover {
+    background-color: var(--primary-hover) !important;
+    color: var(--text-light) !important;
+}
+
+/* Form Elements */
+body.dark input, 
+body.dark textarea, 
+body.dark select {
+    border-color: var(--border-dark);
+    background-color: var(--bg-dark-alt);
+    color: var(--text-light);
+}
+
+body.dark input:focus, 
+body.dark textarea:focus, 
+body.dark select:focus {
+    border-color: var(--primary-color);
+}
+
+/* Cards and Containers */
+body.dark .portfolio_item, 
+body.dark .blog-posts .list_inner {
+    background-color: var(--bg-dark-alt);
+    box-shadow: 0 5px 20px var(--shadow-dark);
+}
+
+body.dark .portfolio_item:hover, 
+body.dark .blog-posts .list_inner:hover {
+    box-shadow: 0 8px 25px var(--shadow-dark);
+}
+
+/* Header and Navigation */
+body.dark .grax_tm_topbar {
+    background: rgba(26, 26, 26, 0.98);
+    box-shadow: 0 4px 20px var(--shadow-dark);
+}
+
+body.dark .grax_tm_topbar.animate {
+    background-color: var(--bg-dark);
+}
+
+body.dark .grax_tm_topbar .menu ul li a {
+    color: var(--text-light);
+}
+
+/* Section Backgrounds */
+body.dark .grax_tm_about {
+    background-color: transparent;
+}
+
+body.dark .grax_tm_portfolio,
+body.dark .grax_tm_news,
+body.dark .grax_tm_copyright {
+    background-color: var(--bg-dark-alt);
+}
+
+/* Logo Visibility */
+body.dark .grax_tm_topbar .logo .dark {
+    display: none;
+}
+
+body.dark .grax_tm_topbar .logo .light {
+    display: block;
+}
+
+/* Other Dark Mode Specific Styles */
+body.dark .overlay_effect:after {
+    background-color: var(--bg-dark-alt);
+}
+
+body.dark .grax_tm_portfolio .overlay {
+    background-color: var(--bg-dark-alt);
+}
+
+body.dark .progress_inner .background {
+    background: rgba(255, 255, 255, 0.09);
+}
+
+body.dark .progress_inner > span {
+    color: var(--text-light);
+}
+
+body.dark .my_wave {
+    display: none;
+}
