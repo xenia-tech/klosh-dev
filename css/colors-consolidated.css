@@ -1,0 +1,203 @@
+/* 
+ * Consolidated Colors Stylesheet
+ * This file centralizes all color variables and color-related styles
+ * for consistent theming across the entire site
+ */
+
+/* ----------------------------------------
+   Color Variables
+   ---------------------------------------- */
+
+:root {
+    --primary-color: #000000;
+    --text-color: #767676;
+    --heading-color: #000000;
+    --link-color: #000000;
+    --background-color: #ffffff;
+    --accent-color: #39FF14;
+}
+
+/* ----------------------------------------
+   Light Mode Color Applications
+   ---------------------------------------- */
+
+/* Base Elements */
+body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+}
+
+p, span, li {
+    color: var(--text-color);
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: #333;
+}
+
+/* Button styles */
+.grax_tm_button a,
+.grax_tm_button[data-color="dark"] a {
+    background-color: #39FF14;
+    border: 2px solid #39FF14;
+    color: #000;
+    transition: all .3s ease;
+}
+
+.grax_tm_button[data-color="light"] a {
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+    color: #000;
+    transition: all .3s ease;
+}
+
+.grax_tm_button a:hover,
+.grax_tm_button[data-color="dark"] a:hover,
+.grax_tm_button[data-color="light"] a:hover {
+    background-color: #000 !important;
+    color: #ffffff !important;
+    border-color: #000 !important;
+}
+
+/* Form Elements */
+input, textarea, select {
+    border-color: #e5e5e5;
+    background-color: #ffffff;
+    color: var(--text-color);
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-color);
+}
+
+/* Cards and Containers */
+.portfolio_item, 
+.blog-posts .list_inner {
+    background-color: #ffffff;
+}
+
+.portfolio_item:hover, 
+.blog-posts .list_inner:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header and Navigation */
+.grax_tm_topbar {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.grax_tm_topbar.animate {
+    background-color: var(--background-color);
+}
+
+.grax_tm_topbar .menu ul li a {
+    color: var(--text-color);
+}
+
+/* Section Backgrounds */
+.grax_tm_about {
+    background-color: #f8f9fa;
+}
+
+.grax_tm_portfolio,
+.grax_tm_news {
+    background-color: var(--background-color);
+}
+
+/* Status Messages */
+.success-message {
+    color: #4CAF50;
+}
+
+.error-message {
+    color: #ff3333;
+}
+
+.warning-message {
+    color: #ffc107;
+}
+
+.info-message {
+    color: #17a2b8;
+}
+
+/* Footer styles */
+.grax_tm_footer {
+    background-color: #000000;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.grax_tm_footer .container {
+    background-color: transparent;
+}
+
+.grax_tm_footer p {
+    color: #ffffff;
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Contact form */
+.grax_tm_contact .fields input,
+.grax_tm_contact .fields textarea,
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid #e5e5e5;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.grax_tm_contact .fields input:focus,
+.grax_tm_contact .fields textarea:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.grax_tm_contact .contact_success,
+.contact-form .success {
+    color: #4CAF50;
+}
+
+/* Info list */
+.grax_tm_contact .info_list span {
+    color: var(--text-color);
+}
+
+.grax_tm_contact .info_list svg {
+    fill: var(--primary-color);
+}
+
+.grax_tm_contact .info_list a:hover {
+    color: var(--accent-color);
+}
+
+/* Title Span Elements - Accent Color */
+.grax_tm_title_holder h3 span {
+    color: var(--accent-color);
+}
+
+/* News section hover effects */
+.grax_tm_news .news_list ul li .details .title a:hover,
+.grax_tm_news .news_list ul li .details .date a:hover {
+    color: #39FF14 !important;
+}
+
+/* Portfolio hover effects */
+.grax_tm_portfolio .portfolio_list ul li:hover .title a {
+    color: #39FF14 !important;
+}

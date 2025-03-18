@@ -1,0 +1,273 @@
+/* Custom Header Style */
+body .grax_tm_all_wrap .grax_tm_topbar {
+    padding: 15px 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: none;
+}
+
+/* Remove animate class styles */
+body .grax_tm_all_wrap .grax_tm_topbar.animate {
+    padding: 15px 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+body .grax_tm_all_wrap .grax_tm_topbar .logo img {
+    max-width: 70px;
+}
+
+/* Always show dark logo, hide light logo */
+body .grax_tm_all_wrap .grax_tm_topbar .logo .light {
+    display: none;
+}
+
+body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
+    display: block;
+}
+
+/* Menu styles - override base and color styles */
+.grax_tm_topbar .menu ul li a {
+    text-decoration: none;
+    color: #000 !important;
+    font-weight: 500;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Restore the base underline style */
+.grax_tm_topbar .menu ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+/* Add underline only on hover */
+.grax_tm_topbar .menu ul li a:hover:after {
+    width: 100%;
+}
+
+/* Ensure navbar links don't change color on hover */
+.grax_tm_topbar .menu ul li a:hover {
+    color: var(--text-color) !important;
+}
+
+/* Only show underline effect on hover */
+.grax_tm_topbar .menu ul li a:hover:after {
+    width: 100%;
+}
+
+/* Remove all active styling */
+.grax_tm_topbar .menu ul li a.current {
+    color: #000 !important;
+    font-weight: normal !important;
+    background: none !important;
+}
+
+.grax_tm_topbar .menu ul li a.current:after {
+    width: 0 !important;
+}
+
+/* Override any hover color changes */
+.grax_tm_topbar .menu ul li a:hover {
+    color: #000 !important;
+}
+
+/* Link hover styles - removing unwanted lime green hover effect */
+.grax_tm_all_wrap[data-color="lime"] a:hover {
+    color: #39FF14;
+}
+
+/* Ensure links have transition */
+.grax_tm_all_wrap a {
+    transition: color 0.3s ease;
+}
+
+/* Ensure next project link (back to portfolio) doesn't change color on hover */
+.next_project a:hover,
+.next_project a:hover span,
+.next_project a:hover svg {
+    color: var(--text-color) !important;
+    fill: var(--text-color) !important;
+}
+
+/* Hero section layout */
+.grax_tm_hero .content {
+    width: 100%;
+}
+
+.grax_tm_hero .content .container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.grax_tm_hero .details {
+    width: 100%;
+    max-width: 80%;
+}
+
+/* Hero title styling */
+.grax_tm_hero .details h3.name {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.grax_tm_hero .details h3.name .highlight {
+    color: #39FF14;
+}
+
+/* Hero subtitle styling */
+.grax_tm_hero .details .job {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grax_tm_hero .details h3.name {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    
+    .grax_tm_hero .details {
+        max-width: 90%;
+    }
+}
+
+/* News item styles */
+.grax_tm_news .news_list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.grax_tm_news .news_list ul li {
+    margin-bottom: 30px;
+}
+
+.grax_tm_news .news_list ul li .list_inner {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    position: relative;
+}
+
+.grax_tm_news .news_list ul li .image {
+    position: relative;
+    overflow: hidden;
+}
+
+.grax_tm_news .news_list ul li .image img {
+    min-width: 100%;
+    opacity: 0;
+    position: relative;
+}
+
+.grax_tm_news .news_list ul li .image .main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.grax_tm_news .news_list ul li .details {
+    width: 100%;
+    float: left;
+    padding-top: 20px;
+}
+
+.grax_tm_news .news_list ul li .details .title {
+    margin-bottom: 10px;
+}
+
+.grax_tm_news .news_list ul li .details .title a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.grax_tm_news .news_list ul li:hover .details .title a {
+    color: #39FF14;
+}
+
+.grax_tm_news .news_list ul li .details .date {
+    font-size: 14px;
+    color: #666;
+}
+
+.grax_tm_news .news_list ul li .details .date a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.grax_tm_news .news_list ul li .details .date span {
+    margin: 0 10px;
+}
+
+/* News section hover colors */
+.grax_tm_news .news_list ul li .details .title a:hover,
+.grax_tm_news .news_list ul li .details .date a:hover,
+.grax_tm_modalbox_news .date a:hover {
+    color: #767676; /* Changed from #e54b4b to maintain original text color */
+}
+
+/* Portfolio grid adjustments to match news section spacing */
+.portfolio_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    margin-top: 0;
+}
+
+.portfolio_item {
+    margin-bottom: 0;
+}
+
+/* Mobile menu fixes */
+.grax_tm_mobile_menu .logo .light {
+    display: none;
+}
+.grax_tm_mobile_menu .logo .dark {
+    display: block;
+}
+.grax_tm_mobile_menu .my_trigger .hamburger-inner,
+.grax_tm_mobile_menu .my_trigger .hamburger-inner::before,
+.grax_tm_mobile_menu .my_trigger .hamburger-inner::after {
+    background-color: #000;
+}
+
+/* Ensure sections are visible */
+.grax_tm_section {
+    position: relative;
+    z-index: 5;
+    background-color: #ffffff;
+}
+
+/* Remove duplicate footer styles */

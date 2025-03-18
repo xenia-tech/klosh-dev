@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="CSS Optimization Test" />
+    <title>CSS Optimization Test | Klosh</title>
+    
+    <!-- STYLES -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/core-optimized.css" />
+    <link rel="stylesheet" type="text/css" href="css/theme.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="css/components.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="css/pages.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="css/responsive-fixes.css" />
+</head>
+<body>
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader_line"></div>
+</div>
+<!-- /PRELOADER -->
+
+<!-- WRAPPER ALL -->
+<div class="grax_tm_all_wrap" data-magic-cursor="hide" data-color="lime">
+    <!-- HEADER -->
+    <div class="grax_tm_topbar" role="navigation">
+        <div class="container">
+            <div class="topbar_inner">
+                <div class="logo">
+                    <a href="/"><img src="img/logo/dark.png" alt="Klosh Logo" /></a>
+                </div>
+                <div class="menu">
+                    <ul class="anchor_nav" role="menubar">
+                        <li role="menuitem"><a href="/" aria-label="Navigate to Home">Home</a></li>
+                        <li role="menuitem"><a href="/#about" aria-label="Navigate to About section">About</a></li>
+                        <li role="menuitem"><a href="/#portfolio" aria-label="Navigate to Portfolio section">Work</a></li>
+                        <li role="menuitem"><a href="/#news" aria-label="Navigate to News section">News</a></li>
+                        <li role="menuitem"><a href="/#contact" aria-label="Navigate to Contact section">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /HEADER -->
+
+    <!-- TEST CONTENT -->
+    <div class="test-section" style="padding: 180px 0 100px;">
+        <div class="container">
+            <div class="grax_tm_title_holder">
+                <h3>CSS <span>Optimization</span> Test</h3>
+            </div>
+            
+            <div class="space50"></div>
+            
+            <div class="test-container" style="background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <h2>Testing Modular CSS Structure</h2>
+                
+                <div class="space30"></div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Form Elements</h4>
+                        <div class="space20"></div>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" />
+                            </div>
+                            <div class="space20"></div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" />
+                            </div>
+                            <div class="space20"></div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" rows="5"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h4>Animations</h4>
+                        <div class="space20"></div>
+                        <div class="fadeIn" style="background-color: #f8f9fa; padding: 20px; border-radius: 5px;">
+                            <p>This element has fadeIn animation</p>
+                        </div>
+                        <div class="space20"></div>
+                        <div class="fadeInUp" style="background-color: #f8f9fa; padding: 20px; border-radius: 5px;">
+                            <p>This element has fadeInUp animation</p>
+                        </div>
+                        <div class="space20"></div>
+                        <div class="slideInLeft" style="background-color: #f8f9fa; padding: 20px; border-radius: 5px;">
+                            <p>This element has slideInLeft animation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space50"></div>
+                
+                <h4>Popup Test</h4>
+                <div class="space20"></div>
+                <a href="#" class="grax_tm_button" id="popup-trigger">Open Popup</a>
+                
+                <div id="test-popup" class="mfp-hide" style="position: relative; background: #FFF; padding: 40px; width: auto; max-width: 500px; margin: 20px auto;">
+                    <h2>Test Popup</h2>
+                    <p>This is a test popup using the Magnific Popup library.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /TEST CONTENT -->
+
+    <!-- FOOTER -->
+    <div class="grax_tm_footer">
+        <div class="container">
+            <p>&copy; 2025 Klosh. All rights reserved.</p>
+        </div>
+    </div>
+    <!-- /FOOTER -->
+
+</div>
+<!-- / WRAPPER ALL -->
+
+<!-- SCRIPTS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" defer></script>
+<script src="js/plugins.js" defer></script>
+<script src="js/menu.js" defer></script>
+<script src="js/init.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Initialize popup
+        $('#popup-trigger').magnificPopup({
+            items: {
+                src: '#test-popup',
+                type: 'inline'
+            }
+        });
+        
+        // Add animation classes with delay to make them visible
+        setTimeout(function() {
+            $('.fadeIn').addClass('animated');
+            
+            setTimeout(function() {
+                $('.fadeInUp').addClass('animated');
+                
+                setTimeout(function() {
+                    $('.slideInLeft').addClass('animated');
+                }, 500);
+            }, 500);
+        }, 500);
+    });
+</script>
+<!-- /SCRIPTS -->
+
+</body>
+</html>

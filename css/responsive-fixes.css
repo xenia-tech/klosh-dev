@@ -1,0 +1,195 @@
+/* Responsive Fixes for Klosh Website
+   This file contains improvements for mobile and tablet displays
+*/
+
+/* Large Desktop Improvements (1041px - 1199px) */
+@media (max-width: 1199px) and (min-width: 1041px) {
+    /* Improve container padding */
+    .container {
+        padding: 0 30px;
+    }
+    
+    /* Adjust hero section spacing */
+    .grax_tm_hero .content {
+        padding: 0 20px;
+    }
+    
+    /* Fix portfolio grid spacing */
+    .grax_tm_portfolio .portfolio_list ul {
+        margin: 0 -15px;
+    }
+    
+    .grax_tm_portfolio .portfolio_list ul li {
+        padding: 0 15px 30px;
+    }
+    
+    /* Improve about section spacing */
+    .grax_tm_about .about_inner {
+        padding: 0 20px;
+    }
+    
+    /* Ensure proper button sizing */
+    .grax_tm_button a {
+        padding: 14px 35px;
+    }
+    
+    /* Fix contact section layout */
+    .grax_tm_contact .contact_inner {
+        padding: 0 15px;
+    }
+}
+
+/* Tablet Improvements (768px - 1040px) */
+@media (max-width: 1040px) and (min-width: 769px) {
+    /* Improve spacing for tablet */
+    .grax_tm_hero .content {
+        padding: 0 15px;
+    }
+    
+    .grax_tm_about .about_inner {
+        padding: 0 15px;
+    }
+    
+    /* Fix portfolio spacing */
+    .grax_tm_portfolio .portfolio_list ul li {
+        padding: 0 15px 30px;
+    }
+    
+    /* Improve contact form on tablet */
+    .grax_tm_contact .fields {
+        padding: 0 15px;
+    }
+    
+    /* Ensure buttons are properly sized */
+    .grax_tm_button a {
+        padding: 12px 30px;
+        display: inline-block;
+    }
+}
+
+/* Mobile Improvements (480px - 768px) */
+@media (max-width: 768px) {
+    /* Improve contact form on mobile */
+    .grax_tm_contact .fields .first ul {
+        display: block;
+    }
+    
+    .grax_tm_contact .fields .first ul li {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    /* Fix button sizing on mobile */
+    .grax_tm_button a {
+        padding: 12px 25px;
+        display: inline-block;
+    }
+    
+    /* Improve spacing for section titles */
+    .grax_tm_title_holder {
+        margin-bottom: 40px;
+    }
+    
+    /* Fix portfolio item spacing */
+    .grax_tm_portfolio .portfolio_list ul li {
+        padding: 0 0 30px;
+    }
+    
+    /* Improve text readability */
+    .grax_tm_hero .name {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+    
+    /* Ensure proper padding on sections */
+    .grax_tm_section {
+        padding: 70px 0;
+    }
+    
+    /* Fix contact info spacing */
+    .grax_tm_contact .info_list ul li {
+        margin-bottom: 25px;
+    }
+}
+
+/* Small Mobile Improvements (under 480px) */
+@media (max-width: 480px) {
+    /* Improve spacing for very small screens */
+    .grax_tm_section {
+        padding: 60px 0;
+    }
+    
+    /* Fix image sizing on small screens */
+    .grax_tm_portfolio .portfolio_list ul li .image img {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Adjust contact form padding */
+    .grax_tm_contact .fields form {
+        padding: 0;
+    }
+    
+    /* Fix button text size */
+    .grax_tm_button a {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    
+    /* Improve hero section text */
+    .grax_tm_hero .name {
+        font-size: 32px;
+    }
+    
+    .grax_tm_hero .job {
+        font-size: 15px;
+    }
+    
+    /* Fix contact form input sizing */
+    .grax_tm_contact .fields input,
+    .grax_tm_contact .fields textarea {
+        padding: 12px;
+    }
+    
+    /* Fix spacing in about section */
+    .grax_tm_about .about_inner {
+        padding: 0;
+    }
+    
+    /* Ensure proper margins on mobile */
+    .container {
+        margin: 0 auto;
+    }
+}
+
+/* Fix for contact form on all devices */
+.grax_tm_contact .fields .returnmessage,
+.grax_tm_contact .fields .empty_notice {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.grax_tm_contact .fields .returnmessage {
+    /* Removing the background color */
+    /* background-color: rgba(0, 128, 0, 0.1); */
+    color: green;
+    display: none; /* Hide by default, only show when there's a message */
+}
+
+.grax_tm_contact .fields .empty_notice {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+}
+
+/* Fix for buttons to ensure they're clickable */
+.grax_tm_button a {
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+}
+
+/* Fix for portfolio images to ensure proper sizing */
+.grax_tm_portfolio .portfolio_list ul li .image {
+    overflow: hidden;
+}
