@@ -18,7 +18,8 @@ body.dark{
    - Maintains contrast for navigation
 */
 body.dark .grax_tm_topbar {
-    background: rgba(26, 26, 26, 0.98);
+    /* Navbar is already black in both light and dark mode */
+    background-color: #000000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 

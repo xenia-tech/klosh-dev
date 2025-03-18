@@ -1,55 +1,112 @@
 <?php
+// Configuration
+$config = [
+    'recipient_email' => "hello@klosh.dev",
+    'subject' => "Message from Klosh website contact form",
+    'success_message' => "Your message has been sent successfully. We will contact you soon.",
+    'error_message' => "Sorry, there was an error sending your message. Please try again later."
+];
 
-// Put contacting email here
-$php_main_email = "hello@klosh.dev";
+// Initialize response array
+$response = [
+    'success' => false,
+    'message' => '',
+    'errors' => []
+];
 
-//Fetching Values from URL
-$php_name = $_POST['ajax_name'];
-$php_email = $_POST['ajax_email'];
-$php_message = $_POST['ajax_message'];
-
-
-
-//Sanitizing email
-$php_email = filter_var($php_email, FILTER_SANITIZE_EMAIL);
-
-
-//After sanitization Validation is performed
-if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
-	
-	
-		$php_subject = "Message from Klosh website contact form";
-		
-		// To send HTML mail, the Content-type header must be set
-		$php_headers = 'MIME-Version: 1.0' . "\r\n";
-		$php_headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-		$php_headers .= 'From:' . $php_email. "\r\n"; // Sender's Email
-		$php_headers .= 'Reply-To:' . $php_email. "\r\n"; // Reply to Sender
-		
-		$php_template = '<div style="padding:50px; font-family: Arial, sans-serif;">Hello,<br/><br/>'
-		. 'You have received a new message from the Klosh website contact form.<br/><br/>'
-		. '<strong style="color:#333;">Name:</strong> ' . htmlspecialchars($php_name) . '<br/>'
-		. '<strong style="color:#333;">Email:</strong> ' . htmlspecialchars($php_email) . '<br/>'
-		. '<strong style="color:#333;">Message:</strong> ' . nl2br(htmlspecialchars($php_message)) . '<br/><br/>'
-		. 'This email was sent from your website contact form.'
-		. '</div>';
-		$php_sendmessage = "<div style=\"background-color:#f5f5f5; color:#333;\">" . $php_template . "</div>";
-		
-		// message lines should not exceed 70 characters (PHP rule), so wrap it
-		$php_sendmessage = wordwrap($php_sendmessage, 70);
-		
-		// Send mail by PHP Mail Function
-		$mail_sent = mail($php_main_email, $php_subject, $php_sendmessage, $php_headers);
-		
-		if($mail_sent) {
-		    echo "";
-		} else {
-		    echo "<span class='contact_error'>* Server error: Unable to send email *</span>";
-		}
-	
-	
-} else {
-	echo "<span class='contact_error'>* Invalid email address *</span>";
+// Only process POST requests
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    $response['message'] = 'Invalid request method';
+    echo json_encode($response);
+    exit;
 }
 
+// Get form data
+$name = isset($_POST['ajax_name']) ? trim($_POST['ajax_name']) : '';
+$email = isset($_POST['ajax_email']) ? trim($_POST['ajax_email']) : '';
+$message = isset($_POST['ajax_message']) ? trim($_POST['ajax_message']) : '';
+
+// Validate inputs
+if (empty($name)) {
+    $response['errors'][] = 'Name is required';
+}
+
+if (empty($email)) {
+    $response['errors'][] = 'Email is required';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $response['errors'][] = 'Please enter a valid email address';
+}
+
+if (empty($message)) {
+    $response['errors'][] = 'Message is required';
+}
+
+// If validation fails, return errors
+if (!empty($response['errors'])) {
+    $response['message'] = $response['errors'][0]; // Return first error as main message
+    echo json_encode($response);
+    exit;
+}
+
+// Prepare email
+$to = $config['recipient_email'];
+$subject = $config['subject'];
+
+// Create email headers
+$headers = [
+    'MIME-Version: 1.0',
+    'Content-type: text/html; charset=utf-8',
+    'From: ' . $email,
+    'Reply-To: ' . $email,
+    'X-Mailer: PHP/' . phpversion()
+];
+
+// Create email template
+$email_template = '
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; }
+        .header { background-color: #000; color: #fff; padding: 10px 20px; }
+        .content { padding: 20px; }
+        .footer { background-color: #f5f5f5; padding: 10px 20px; font-size: 12px; color: #777; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>New Contact Form Submission</h2>
+        </div>
+        <div class="content">
+            <p>You have received a new message from the Klosh website contact form.</p>
+            <p><strong>Name:</strong> ' . htmlspecialchars($name) . '</p>
+            <p><strong>Email:</strong> ' . htmlspecialchars($email) . '</p>
+            <p><strong>Message:</strong></p>
+            <p>' . nl2br(htmlspecialchars($message)) . '</p>
+        </div>
+        <div class="footer">
+            <p>This email was sent from your website contact form on ' . date('F j, Y, g:i a') . '</p>
+        </div>
+    </div>
+</body>
+</html>
+';
+
+// Send email
+$mail_sent = mail($to, $subject, $email_template, implode("\r\n", $headers));
+
+// Return response
+if ($mail_sent) {
+    $response['success'] = true;
+    $response['message'] = $config['success_message'];
+} else {
+    $response['message'] = $config['error_message'];
+}
+
+// Return JSON response
+header('Content-Type: application/json');
+echo json_encode($response);
+exit;
 ?>

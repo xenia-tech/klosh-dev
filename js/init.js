@@ -483,7 +483,7 @@ function grax_tm_contact_form(){
 		var subject 	= jQuery(".contact_form #subject").val();
 		var success     = jQuery(".contact_form .returnmessage").data('success');
 	
-		jQuery(".contact_form .returnmessage").empty(); //To empty previous error/success message.
+		jQuery(".contact_form .returnmessage").empty().removeClass('show'); //To empty previous error/success message.
 		
 		// Simple email validation
 		function isValidEmail(email) {
@@ -496,7 +496,7 @@ function grax_tm_contact_form(){
 			jQuery('div.empty_notice').slideDown(500).delay(2000).slideUp(500);
 		}
 		else if(!isValidEmail(email)) {
-			jQuery(".contact_form .returnmessage").append("<span class='contact_error'>* Please enter a valid email address *</span>");
+			jQuery(".contact_form .returnmessage").append("<span class='contact_error'>* Please enter a valid email address *</span>").addClass('show');
 			jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);
 		}
 		else{
@@ -504,32 +504,43 @@ function grax_tm_contact_form(){
 			jQuery("#send_message").text("Sending...");
 			jQuery("#send_message").css("opacity", "0.5");
 			
-			// Returns successful data submission message when the entered information is stored in database.
-			jQuery.post("modal/contact.php",{ ajax_name: name, ajax_email: email, ajax_message:message, ajax_subject: subject}, function(data) {
-				
-				// Reset button
-				jQuery("#send_message").text("Send Message");
-				jQuery("#send_message").css("opacity", "1");
-				
-				jQuery(".contact_form .returnmessage").append(data);//Append returned message to message paragraph
-				
-				if(jQuery(".contact_form .returnmessage span.contact_error").length){
-					jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);		
-				}else{
-					jQuery(".contact_form .returnmessage").append("<span class='contact_success'>"+ success +"</span>");
-					jQuery(".contact_form .returnmessage").slideDown(500).delay(4000).slideUp(500);
+			// Send data to the server
+			jQuery.ajax({
+				url: "modal/contact.php",
+				type: "POST",
+				data: {
+					ajax_name: name,
+					ajax_email: email,
+					ajax_message: message,
+					ajax_subject: subject
+				},
+				dataType: "json",
+				success: function(response) {
+					// Reset button
+					jQuery("#send_message").text("Send Message");
+					jQuery("#send_message").css("opacity", "1");
+					
+					if (response.success) {
+						// Success message
+						jQuery(".contact_form .returnmessage").append("<span class='contact_success'>" + response.message + "</span>").addClass('show');
+						jQuery(".contact_form .returnmessage").slideDown(500).delay(4000).slideUp(500);
+						
+						// Reset form
+						jQuery("#contact_form")[0].reset();
+					} else {
+						// Error message
+						jQuery(".contact_form .returnmessage").append("<span class='contact_error'>" + response.message + "</span>").addClass('show');
+						jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);
+					}
+				},
+				error: function(xhr, status, error) {
+					// Handle AJAX failure
+					jQuery("#send_message").text("Send Message");
+					jQuery("#send_message").css("opacity", "1");
+					jQuery(".contact_form .returnmessage").append("<span class='contact_error'>* Server error: Could not send message *</span>").addClass('show');
+					jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);
+					console.error("AJAX Error:", status, error);
 				}
-				
-				if(data===""){
-					jQuery("#contact_form")[0].reset();//To reset form fields on success
-				}
-				
-			}).fail(function() {
-				// Handle AJAX failure
-				jQuery("#send_message").text("Send Message");
-				jQuery("#send_message").css("opacity", "1");
-				jQuery(".contact_form .returnmessage").append("<span class='contact_error'>* Server error: Could not send message *</span>");
-				jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);
 			});
 		}
 		return false; 
