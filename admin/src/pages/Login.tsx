@@ -8,14 +8,14 @@ import {
   Input,
   VStack,
   useToast,
-  Container,
+  // Container,
   Heading,
   Text,
   useColorModeValue,
   InputGroup,
   InputLeftElement,
   Image,
-  Flex,
+  // Flex,
 } from '@chakra-ui/react'
 import { EmailIcon, LockIcon } from '@chakra-ui/icons'
 import { useAuth } from '../contexts/AuthContext'

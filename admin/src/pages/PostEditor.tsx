@@ -18,32 +18,19 @@ import {
   Flex,
 } from '@chakra-ui/react'
 import { ArrowBackIcon } from '@chakra-ui/icons'
+import { supabase } from '../lib/supabase'
 
-// Mock post data
-const mockPosts = [
-  {
-    id: 1,
-    title: 'Sample Blog Post 1',
-    slug: 'sample-blog-post-1',
-    excerpt: 'This is a sample blog post for development purposes.',
-    content: '<p>This is the content of the first sample blog post.</p>',
-    featured_image: 'https://via.placeholder.com/800x400',
-    published: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  },
-  {
-    id: 2,
-    title: 'Sample Blog Post 2',
-    slug: 'sample-blog-post-2',
-    excerpt: 'Another sample blog post for testing the dashboard.',
-    content: '<p>This is the content of the second sample blog post.</p>',
-    featured_image: 'https://via.placeholder.com/800x400',
-    published: false,
-    created_at: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
-    updated_at: new Date(Date.now() - 86400000).toISOString(),
-  },
-];
+// Define Post type
+interface Post {
+  id?: number;
+  title: string;
+  slug: string;
+  content: string;
+  image_url: string;
+  published: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
 
 export default function PostEditor() {
   const { id } = useParams<{ id: string }>()
@@ -53,12 +40,11 @@ export default function PostEditor() {
   const cardBgColor = useColorModeValue('white', 'gray.800')
   const borderColor = useColorModeValue('gray.200', 'gray.700')
   
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Post>({
     title: '',
     slug: '',
-    excerpt: '',
     content: '',
-    featured_image: '',
+    image_url: '',
     published: false,
   })
   
@@ -67,20 +53,45 @@ export default function PostEditor() {
 
   useEffect(() => {
     if (!isNewPost) {
-      // Find post in mock data
-      const post = mockPosts.find(p => p.id === Number(id))
-      if (post) {
-        setFormData({
-          title: post.title,
-          slug: post.slug,
-          excerpt: post.excerpt,
-          content: post.content,
-          featured_image: post.featured_image,
-          published: post.published,
-        })
-      }
+      fetchPost()
     }
   }, [id, isNewPost])
+
+  const fetchPost = async () => {
+    try {
+      setLoading(true)
+      const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('id', id)
+        .single()
+
+      if (error) {
+        throw error
+      }
+
+      if (data) {
+        setFormData({
+          title: data.title,
+          slug: data.slug,
+          content: data.content || '',
+          image_url: data.image_url || '',
+          published: data.published,
+        })
+      }
+    } catch (error) {
+      console.error('Error fetching post:', error)
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch post',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -105,21 +116,58 @@ export default function PostEditor() {
     setLoading(true)
     
     try {
-      // Simulate saving
-      setTimeout(() => {
+      const postData = {
+        ...formData,
+        updated_at: new Date().toISOString()
+      }
+
+      console.log('Submitting post data:', postData);
+
+      if (isNewPost) {
+        // Create new post
+        const { error } = await supabase
+          .from('posts')
+          .insert([{ ...postData, created_at: new Date().toISOString() }])
+
+        if (error) {
+          console.error('Supabase error creating post:', error);
+          throw error;
+        }
+        
         toast({
           title: 'Success',
-          description: `Post ${isNewPost ? 'created' : 'updated'} successfully`,
+          description: 'Post created successfully',
           status: 'success',
           duration: 5000,
           isClosable: true,
         })
-        navigate('/dashboard')
-      }, 1000)
-    } catch (error) {
+      } else {
+        // Update existing post
+        const { error } = await supabase
+          .from('posts')
+          .update(postData)
+          .eq('id', id)
+
+        if (error) {
+          console.error('Supabase error updating post:', error);
+          throw error;
+        }
+        
+        toast({
+          title: 'Success',
+          description: 'Post updated successfully',
+          status: 'success',
+          duration: 5000,
+          isClosable: true,
+        })
+      }
+      
+      navigate('/dashboard')
+    } catch (error: any) {
+      console.error('Error saving post:', error);
       toast({
         title: 'Error',
-        description: `Failed to ${isNewPost ? 'create' : 'update'} post`,
+        description: `Failed to ${isNewPost ? 'create' : 'update'} post: ${error.message || 'Unknown error'}`,
         status: 'error',
         duration: 5000,
         isClosable: true,
@@ -198,17 +246,6 @@ export default function PostEditor() {
             </FormControl>
 
             <FormControl>
-              <FormLabel>Excerpt</FormLabel>
-              <Textarea
-                name="excerpt"
-                value={formData.excerpt}
-                onChange={handleChange}
-                placeholder="Brief summary of the post"
-                rows={3}
-              />
-            </FormControl>
-
-            <FormControl>
               <FormLabel>Content</FormLabel>
               <Textarea
                 name="content"
@@ -225,8 +262,8 @@ export default function PostEditor() {
             <FormControl>
               <FormLabel>Featured Image URL</FormLabel>
               <Input
-                name="featured_image"
-                value={formData.featured_image}
+                name="image_url"
+                value={formData.image_url}
                 onChange={handleChange}
                 placeholder="https://example.com/image.jpg"
               />

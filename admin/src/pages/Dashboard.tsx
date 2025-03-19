@@ -22,68 +22,135 @@ import {
   Text,
   Center,
 } from '@chakra-ui/react'
-import { AddIcon, EditIcon, DeleteIcon, ChevronDownIcon } from '@chakra-ui/icons'
+import { AddIcon, EditIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import { format } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
+import { supabase } from '../lib/supabase'
 
-// Simple mock data for development
-const mockPosts = [
-  {
-    id: 1,
-    title: 'Sample Blog Post 1',
-    slug: 'sample-blog-post-1',
-    excerpt: 'This is a sample blog post for development purposes.',
-    content: '<p>This is the content of the first sample blog post.</p>',
-    featured_image: 'https://via.placeholder.com/800x400',
-    published: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  },
-  {
-    id: 2,
-    title: 'Sample Blog Post 2',
-    slug: 'sample-blog-post-2',
-    excerpt: 'Another sample blog post for testing the dashboard.',
-    content: '<p>This is the content of the second sample blog post.</p>',
-    featured_image: 'https://via.placeholder.com/800x400',
-    published: false,
-    created_at: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
-    updated_at: new Date(Date.now() - 86400000).toISOString(),
-  },
-];
+// Define Post type
+interface Post {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  content?: string;
+  image_url?: string;
+  published: boolean;
+  created_at: string;
+  updated_at?: string;
+}
 
 export default function Dashboard() {
-  const [posts, setPosts] = useState(mockPosts);
-  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
   const toast = useToast();
   const navigate = useNavigate();
   const bgColor = useColorModeValue('gray.50', 'gray.900');
   const cardBgColor = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
 
-  // Mock functions
-  const handleDelete = (id: number) => {
-    setPosts(posts.filter(post => post.id !== id));
-    toast({
-      title: 'Success',
-      description: 'Post deleted successfully',
-      status: 'success',
-      duration: 5000,
-      isClosable: true,
-    });
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase
+          .from('posts')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          throw error;
+        }
+
+        if (data) {
+          setPosts(data);
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        toast({
+          title: 'Error',
+          description: 'Failed to fetch posts',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPosts();
+  }, [toast]);
+
+  const handleDelete = async (id: number) => {
+    try {
+      setLoading(true);
+      const { error } = await supabase
+        .from('posts')
+        .delete()
+        .eq('id', id);
+
+      if (error) {
+        throw error;
+      }
+
+      setPosts(posts.filter(post => post.id !== id));
+      toast({
+        title: 'Success',
+        description: 'Post deleted successfully',
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to delete post',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const togglePublished = (post: any) => {
-    setPosts(posts.map(p => 
-      p.id === post.id ? { ...p, published: !p.published } : p
-    ));
-    toast({
-      title: 'Success',
-      description: `Post ${post.published ? 'unpublished' : 'published'} successfully`,
-      status: 'success',
-      duration: 5000,
-      isClosable: true,
-    });
+  const togglePublished = async (post: Post) => {
+    try {
+      setLoading(true);
+      const { error } = await supabase
+        .from('posts')
+        .update({ published: !post.published })
+        .eq('id', post.id);
+
+      if (error) {
+        throw error;
+      }
+
+      setPosts(posts.map(p => 
+        p.id === post.id ? { ...p, published: !post.published } : p
+      ));
+      
+      toast({
+        title: 'Success',
+        description: `Post ${post.published ? 'unpublished' : 'published'} successfully`,
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      console.error('Error updating post:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to update post',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
