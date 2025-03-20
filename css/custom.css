@@ -391,4 +391,41 @@ body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
     background-color: #ffffff;
 }
 
-/* Remove duplicate footer styles */
+/* Footer Styles */
+.grax_tm_footer .social_icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.grax_tm_footer .social_icons a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grax_tm_footer .social_icons svg {
+    width: 20px;
+    height: 20px;
+}
+
+.grax_tm_footer .social_icons a:hover {
+    color: #cccccc;
+}
+
+.grax_tm_footer .privacy_policy {
+    margin: 0;
+    text-align: right;
+}
+
+.grax_tm_footer .privacy_policy a {
+    color: #fff !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.grax_tm_footer .privacy_policy a:hover {
+    color: #cccccc !important;
+}
