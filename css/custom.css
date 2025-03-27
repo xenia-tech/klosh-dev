@@ -1,0 +1,860 @@
+/* Link hover styles - removing unwanted lime green hover effect */
+.grax_tm_all_wrap[data-color="lime"] a:hover {
+    color: #8C001A;
+}
+
+/* Ensure links have transition */
+.grax_tm_all_wrap a {
+    transition: color 0.3s ease;
+}
+
+/* Ensure next project link (back to portfolio) doesn't change color on hover */
+.next_project a:hover,
+.next_project a:hover span,
+.next_project a:hover svg {
+    color: var(--text-color) !important;
+    fill: var(--text-color) !important;
+}
+
+/* Hero section layout */
+.grax_tm_hero .content {
+    width: 100%;
+}
+
+/* Move hero content up by 150px */
+body .grax_tm_all_wrap .grax_tm_hero .details {
+    top: calc(50% - 150px) !important;
+}
+
+.grax_tm_hero .content .container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.grax_tm_hero .details {
+    width: 100%;
+    max-width: 90%;
+}
+
+/* Hero title styling */
+.grax_tm_hero .details h3.name {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.grax_tm_hero .details h3.name .highlight {
+    color: #8C001A;
+}
+
+/* Hero subtitle styling */
+.grax_tm_hero .details .job {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grax_tm_hero .details h3.name {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    
+    .grax_tm_hero .details {
+        max-width: 90%;
+    }
+}
+
+/* Split Hero Layout */
+.hero_split {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.hero_left {
+    width: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero_right {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero right image with gradient overlay */
+.hero_right .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero_right .image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero_left .content {
+    max-width: 600px;
+    margin: 0;
+    padding-top: 0;
+    padding-left: 0;
+}
+
+.hero_left .name {
+    color: #333333;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hero_left .name .highlight {
+    color: #8C001A;
+}
+
+.hero_left .job {
+    color: #333333 !important;
+    font-size: 20px !important;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.hero_left .hero_button {
+    margin-top: 30px;
+}
+
+.hero_left .hero_button a {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #8C001A;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid #8C001A;
+    width: auto;
+    text-align: center;
+    min-width: 180px;
+    max-width: 220px;
+}
+
+.hero_left .hero_button a:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+@media (max-width: 768px) {
+    .hero_split {
+        flex-direction: column;
+    }
+    
+    .hero_left {
+        padding: 40px 20px;
+    }
+    
+    .hero_right {
+        min-height: 50vh;
+    }
+    
+    .hero_left .name {
+        font-size: 48px;
+    }
+    
+    .hero_left .job {
+        font-size: 18px;
+    }
+}
+
+/* Custom Header Style */
+body .grax_tm_all_wrap .grax_tm_topbar {
+    padding: 15px 0;
+    background-color: #000000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: none;
+}
+
+/* Reset all navbar container spacing */
+.grax_tm_topbar {
+    width: 100%;
+}
+
+.grax_tm_topbar .container {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+.grax_tm_topbar .topbar_inner {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Logo specific adjustment */
+body .grax_tm_all_wrap .grax_tm_topbar .logo {
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-left: 40px !important;
+}
+
+.grax_tm_topbar .logo a {
+    padding: 0;
+    margin: 0;
+}
+
+.grax_tm_topbar .logo img {
+    padding: 0;
+    margin: 0;
+}
+
+body .grax_tm_all_wrap .grax_tm_topbar .menu {
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-right: 50px !important;
+}
+
+/* Remove animate class styles */
+body .grax_tm_all_wrap .grax_tm_topbar.animate {
+    padding: 15px 0;
+    background-color: #000000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+body .grax_tm_all_wrap .grax_tm_topbar .logo img {
+    max-width: 70px;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+
+/* Always show dark logo, hide light logo */
+body .grax_tm_all_wrap .grax_tm_topbar .logo .light {
+    display: none;
+}
+
+body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
+    display: block;
+}
+
+/* Menu styles */
+.grax_tm_topbar .menu ul li a {
+    text-decoration: none;
+    color: #FFFFFF !important;
+    font-weight: 500;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Restore the base underline style */
+.grax_tm_topbar .menu ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+/* Add underline only on hover */
+.grax_tm_topbar .menu ul li a:hover:after {
+    width: 100%;
+}
+
+/* Ensure navbar links don't change color on hover */
+.grax_tm_topbar .menu ul li a:hover {
+    color: #FFFFFF !important;
+}
+
+/* Remove all active styling */
+.grax_tm_topbar .menu ul li a.current {
+    color: #FFFFFF !important;
+    font-weight: normal !important;
+    background: none !important;
+}
+
+.grax_tm_topbar .menu ul li a.current:after {
+    width: 0 !important;
+}
+
+/* Adjust navbar layout */
+.grax_tm_topbar .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.grax_tm_topbar .topbar_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+
+/* Logo specific adjustment */
+.grax_tm_topbar .logo {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.grax_tm_topbar .menu {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* News section styling to match portfolio */
+.news_list ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.news_list ul li {
+    margin: 0;
+    padding: 0;
+}
+
+.news_list ul li .list_inner {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.news_list ul li:hover .list_inner {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.news_list ul li .image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.news_list ul li .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.news_list ul li .image .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease;
+}
+
+.news_list ul li .details {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.news_list ul li .details .title {
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.news_list ul li .details .title a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.news_list ul li:hover .details .title a {
+    color: #8C001A;
+}
+
+.news_list ul li .details .date {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Enhanced hover effects for portfolio and news items */
+/* Target the parent container hover to affect the image */
+.portfolio_item:hover .portfolio_image img,
+.portfolio_item:hover .portfolio_image .main,
+.news_list ul li:hover .image img,
+.news_list ul li:hover .image .main {
+    transform: scale(1.08);
+}
+
+/* Base transition for all elements */
+.portfolio_image img,
+.portfolio_image .main,
+.news_list ul li .image img,
+.news_list ul li .image .main {
+    transition: transform 0.4s ease;
+}
+
+/* Ensure image containers have overflow hidden for the zoom effect */
+.portfolio_image,
+.news_list ul li .image {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Direct and specific image hover effect for news items */
+.news_list ul li .image {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.news_list ul li .image img,
+.news_list ul li .image .main {
+    transition: transform 0.4s ease !important;
+}
+
+.news_list ul li:hover .image img,
+.news_list ul li:hover .image .main {
+    transform: scale(1.05) !important;
+}
+
+/* Direct and specific image hover effect for portfolio items */
+.portfolio_image {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.portfolio_image img {
+    transition: transform 0.4s ease !important;
+}
+
+.portfolio_item:hover .portfolio_image img {
+    transform: scale(1.05) !important;
+}
+
+/* Make sure the news title turns burgundy on hover */
+.news_list ul li:hover .title a {
+    color: #8C001A !important;
+}
+
+/* Ensure the news grid is always 3 columns */
+@media (min-width: 768px) {
+    .news_list ul {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* Portfolio grid adjustments to match news section spacing */
+.portfolio_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    margin-top: 40px;
+}
+
+.portfolio_item {
+    margin-bottom: 0;
+}
+
+/* Mobile menu fixes */
+.grax_tm_mobile_menu {
+    background-color: #000000;
+}
+
+.grax_tm_mobile_menu .dropdown {
+    background-color: #000000;
+}
+
+.grax_tm_mobile_menu .dropdown_inner ul li a {
+    color: #FFFFFF !important;
+}
+
+.grax_tm_mobile_menu .dropdown_inner ul li a:hover {
+    color: #FFFFFF !important;
+}
+
+/* Contact Form Styles */
+.contact_form input:focus,
+.contact_form textarea:focus {
+    border-color: #000;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact_form input:invalid,
+.contact_form textarea:invalid {
+    border-color: #ff3860;
+}
+
+.contact_form input:valid,
+.contact_form textarea:valid {
+    border-color: #23d160;
+}
+
+.contact_form .returnmessage {
+    margin-bottom: 20px;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.contact_form .returnmessage.show {
+    opacity: 1;
+    height: auto;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+
+.contact_form .returnmessage .contact_error {
+    color: #ff3860;
+    display: block;
+    padding: 10px 15px;
+    background-color: rgba(255, 56, 96, 0.1);
+    border-radius: 4px;
+    border-left: 3px solid #ff3860;
+}
+
+.contact_form .returnmessage .contact_success {
+    color: #23d160;
+    display: block;
+    padding: 10px 15px;
+    background-color: rgba(35, 209, 96, 0.1);
+    border-radius: 4px;
+    border-left: 3px solid #23d160;
+}
+
+.contact_form .empty_notice {
+    padding: 10px 15px;
+    background-color: rgba(255, 56, 96, 0.1);
+    border-radius: 4px;
+    border-left: 3px solid #ff3860;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.contact_form #send_message {
+    transition: all 0.3s ease;
+}
+
+.contact_form #send_message:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Visually hidden class for accessibility */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Ensure sections are visible */
+.grax_tm_section {
+    position: relative;
+    z-index: 5;
+    background-color: #ffffff;
+}
+
+/* Desktop-specific spacing adjustments - improved approach */
+@media (min-width: 1041px) {
+    /* Reduce bottom spacing on main components */
+    .grax_tm_portfolio {
+        padding-bottom: 0 !important;
+    }
+    
+    .grax_tm_about {
+        margin-bottom: 0 !important;
+    }
+    
+    .grax_tm_news {
+        padding-bottom: 0 !important;
+    }
+    
+    /* Target section elements without using IDs */
+    .grax_tm_section {
+        padding-bottom: 0 !important;
+    }
+    
+    /* Restore original padding for contact section only */
+    .grax_tm_contact .grax_tm_section,
+    #contact.grax_tm_section {
+        padding-bottom: 60px !important;
+    }
+    
+    /* Fix inconsistent spacing between Latest News heading and blog grid */
+    .grax_tm_news .news_list {
+        padding-top: 80px !important; /* Increased from 60px to 80px to position grid lower */
+    }
+    
+    .grax_tm_news .news_list ul {
+        margin-top: 0 !important; /* Remove additional margin */
+    }
+}
+
+/* Ensure button text is white */
+.grax_tm_button a {
+    color: #ffffff !important;
+}
+
+/* Portfolio hover effects */
+.portfolio_list .portfolio_item:hover .details h3 {
+    color: #8C001A;
+}
+
+/* Portfolio item title hover */
+.portfolio_list .details h3 a:hover {
+    color: #8C001A;
+}
+
+/* Blog post hover effects */
+.blog-post-title a:hover {
+    color: #8C001A;
+}
+
+.portfolio_item:hover .portfolio_image img,
+.portfolio_item:hover .portfolio_image .main,
+.news_list ul li:hover .image img,
+.news_list ul li:hover .image .main {
+    transform: scale(1.08);
+    transition: transform 0.4s ease;
+}
+
+.portfolio_image img,
+.portfolio_image .main,
+.news_list ul li .image img,
+.news_list ul li .image .main {
+    transition: transform 0.4s ease;
+}
+
+/* Ensure image containers have overflow hidden for the zoom effect */
+.portfolio_image,
+.news_list ul li .image {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Footer styling */
+.grax_tm_footer .footer_content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.grax_tm_footer .copyright {
+    margin: 0;
+}
+
+.grax_tm_footer .social_icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.grax_tm_footer .social_icons a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grax_tm_footer .social_icons svg {
+    width: 20px;
+    height: 20px;
+}
+
+.grax_tm_footer .social_icons a:hover {
+    color: #cccccc;
+}
+
+.grax_tm_footer .privacy_policy {
+    margin: 0;
+    text-align: right;
+}
+
+.grax_tm_footer .privacy_policy a {
+    color: #fff !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.grax_tm_footer .privacy_policy a:hover {
+    color: #cccccc !important;
+}
+
+/* 
+ * HOME PAGE NAVBAR STYLES
+ * These styles only apply to the navbar on the home page
+ * All other page navbars will remain unchanged
+ */
+.home_navbar {
+    --navbar-opacity: 0;
+    background-color: rgba(0, 0, 0, var(--navbar-opacity)) !important;
+    transition: background-color 0.2s ease;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Always keep menu items white */
+.home_navbar .menu li a {
+    color: white !important;
+    transition: none;
+}
+
+/* Logo transitions */
+.home_navbar .logo img.black_logo {
+    opacity: calc(1 - var(--navbar-opacity));
+    transition: opacity 0.2s ease;
+}
+
+.home_navbar .logo img.white_logo {
+    opacity: var(--navbar-opacity);
+    transition: opacity 0.2s ease;
+}
+
+/* Initial logo state - ensure it's black by default */
+.home_navbar .logo img {
+    filter: brightness(0) !important; /* Makes the logo black */
+    transition: filter 0.3s ease;
+}
+
+/* Make menu text always white */
+.home_navbar .anchor_nav li a {
+    color: #ffffff !important;
+}
+
+/* Override animate class for home navbar */
+.home_navbar.animate {
+    background-color: transparent !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+/* Navbar background changes on scroll - using CSS variable for opacity */
+.home_navbar.scrolled {
+    background-color: rgba(0, 0, 0, var(--navbar-opacity)) !important;
+    background: rgba(0, 0, 0, var(--navbar-opacity)) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, calc(var(--navbar-opacity) * 0.2)) !important;
+}
+
+/* Override animate class when scrolled */
+.home_navbar.animate.scrolled {
+    background-color: rgba(0, 0, 0, var(--navbar-opacity)) !important;
+    background: rgba(0, 0, 0, var(--navbar-opacity)) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, calc(var(--navbar-opacity) * 0.2)) !important;
+}
+
+/* Dark mode support - not needed since navbar is already black when scrolled */
+body.dark .home_navbar.scrolled {
+    background-color: rgba(0, 0, 0, var(--navbar-opacity)) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, calc(var(--navbar-opacity) * 0.2)) !important;
+}
+
+/* Logo color adjustment when scrolled - gradually changes from black to white */
+.home_navbar.scrolled .logo img {
+    filter: brightness(0) invert(var(--navbar-opacity)) !important;
+    transition: filter 0.3s ease;
+}
+
+/* Home navbar links */
+.home_navbar .anchor_nav li a {
+    position: relative;
+    transition: none;
+}
+
+/* Underline effect for home navbar links */
+.home_navbar .anchor_nav li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+/* Expand underline on hover */
+.home_navbar .anchor_nav li a:hover::after {
+    width: 100%;
+}
+
+/* Active link style */
+.home_navbar .anchor_nav li a.current {
+    font-weight: 600;
+}
+
+.home_navbar .anchor_nav li a.current::after {
+    width: 100%;
+}
