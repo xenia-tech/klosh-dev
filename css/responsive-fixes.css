@@ -67,8 +67,156 @@
     }
 }
 
-/* Mobile Improvements (480px - 768px) */
-@media (max-width: 768px) {
+/* Unified Mobile Improvements (up to 767px) */
+@media (max-width: 767px) {
+    /* Global container width and margins */
+    .container {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    /* Fix all sections to have consistent margins */
+    .grax_tm_section {
+        padding: 70px 0;
+        width: 100% !important;
+    }
+    
+    .grax_tm_section .container {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Fix hero section specifically */
+    .grax_tm_hero.creative {
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .hero_split {
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Image at top, full width */
+    .hero_right {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 40vh !important;
+        min-height: 250px !important;
+        order: 1 !important; /* Move image to top */
+    }
+    
+    /* Content below, full width with white background */
+    .hero_left {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 40px 5% !important; /* Use percentage padding for consistency */
+        order: 2 !important; /* Move content below image */
+        background-color: #ffffff !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+    
+    /* Center all content */
+    .hero_left .content {
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+    }
+    
+    /* Adjust hero text size for mobile */
+    .hero_left .name {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        width: 100% !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Adjust hero description text */
+    .hero_left .job {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 15px auto !important;
+        display: block !important;
+    }
+    
+    /* Ensure button is visible and centered */
+    .hero_left .hero_button {
+        text-align: center !important;
+        margin-top: 25px !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .hero_left .hero_button a {
+        display: inline-block !important;
+        font-size: 14px !important;
+        padding: 10px 20px !important;
+        margin: 0 auto !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Fix About Us section layout for mobile */
+    .grax_tm_about .about_inner {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    .grax_tm_about .about_inner .left {
+        width: 100% !important;
+        padding-right: 0 !important;
+        order: 1 !important; /* Text first */
+        margin-bottom: 30px !important;
+    }
+    
+    .grax_tm_about .about_inner .right {
+        width: 100% !important;
+        order: 2 !important; /* Image below */
+    }
+    
+    .grax_tm_about .about_inner .text {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .grax_tm_about .about_inner .image {
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Fix other sections */
+    .grax_tm_about,
+    .grax_tm_portfolio,
+    .grax_tm_services,
+    .grax_tm_testimonials,
+    .grax_tm_news,
+    .grax_tm_contact {
+        width: 100% !important;
+    }
+    
     /* Improve contact form on mobile */
     .grax_tm_contact .fields .first ul {
         display: block;
@@ -95,70 +243,56 @@
         padding: 0 0 30px;
     }
     
-    /* Improve text readability */
-    .grax_tm_hero .name {
-        font-size: 42px;
-        margin-bottom: 10px;
-    }
-    
-    /* Ensure proper padding on sections */
-    .grax_tm_section {
-        padding: 70px 0;
-    }
-    
     /* Fix contact info spacing */
     .grax_tm_contact .info_list ul li {
         margin-bottom: 25px;
     }
+    
+    /* Fix any animation issues */
+    .fn_animation .fn_animation_item,
+    .fn_animation .job,
+    .fn_animation .name {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        animation: none !important;
+    }
 }
 
-/* Small Mobile Improvements (under 480px) */
+/* Extra small devices (under 480px) */
 @media (max-width: 480px) {
-    /* Improve spacing for very small screens */
+    /* Further reduce hero text size for very small screens */
+    .hero_left .name {
+        font-size: 24px !important;
+    }
+    
+    .hero_left .job {
+        font-size: 14px !important;
+    }
+    
+    /* Ensure button is properly sized */
+    .hero_left .hero_button a {
+        font-size: 13px !important;
+        padding: 8px 16px !important;
+    }
+    
+    /* Adjust spacing for very small screens */
     .grax_tm_section {
         padding: 60px 0;
     }
-    
-    /* Fix image sizing on small screens */
-    .grax_tm_portfolio .portfolio_list ul li .image img {
-        width: 100%;
-        height: auto;
-    }
-    
-    /* Adjust contact form padding */
-    .grax_tm_contact .fields form {
-        padding: 0;
+}
+
+/* Small screen adjustments (under 480px) */
+@media (max-width: 480px) {
+    /* Adjust spacing for very small screens */
+    .grax_tm_section {
+        padding: 60px 0;
     }
     
     /* Fix button text size */
     .grax_tm_button a {
         font-size: 14px;
         padding: 10px 20px;
-    }
-    
-    /* Improve hero section text */
-    .grax_tm_hero .name {
-        font-size: 32px;
-    }
-    
-    .grax_tm_hero .job {
-        font-size: 15px;
-    }
-    
-    /* Fix contact form input sizing */
-    .grax_tm_contact .fields input,
-    .grax_tm_contact .fields textarea {
-        padding: 12px;
-    }
-    
-    /* Fix spacing in about section */
-    .grax_tm_about .about_inner {
-        padding: 0;
-    }
-    
-    /* Ensure proper margins on mobile */
-    .container {
-        margin: 0 auto;
     }
 }
 

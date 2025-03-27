@@ -2331,6 +2331,29 @@ body.modal{
     }
 }
 
+@media (max-width: 767px) {
+    body, html {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .grax_tm_all_wrap {
+        width: 100%;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .grax_tm_section .container {
+        width: 90%;
+        max-width: 90%;
+    }
+}
+
 @media (max-width: 768px) {
 	.grax_tm_title_holder h3{letter-spacing: 5px;}
 	.grax_tm_hero .name{font-size: 45px;margin-bottom: 5px;}

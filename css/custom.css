@@ -60,13 +60,240 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .grax_tm_hero .details h3.name {
-        white-space: normal;
-        word-wrap: break-word;
+    /* Fix hero section positioning for mobile */
+    .hero_split {
+        flex-direction: column;
+        min-height: auto;
     }
     
-    .grax_tm_hero .details {
-        max-width: 90%;
+    .hero_left {
+        width: 100%;
+        padding: 20px;
+        min-height: auto;
+    }
+    
+    .hero_right {
+        width: 100%;
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    /* Override the negative top position that's pushing content off-screen */
+    body .grax_tm_all_wrap .grax_tm_hero .details {
+        top: 0 !important;
+        position: relative;
+        transform: none;
+        margin: 0 auto;
+        text-align: center;
+        max-width: 100%;
+        padding: 30px 0;
+    }
+    
+    .hero_left .content {
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+        display: block;
+    }
+    
+    .hero_left .name {
+        font-size: 36px;
+        margin-bottom: 15px;
+        text-align: center;
+        white-space: normal;
+    }
+    
+    .hero_left .job {
+        font-size: 16px !important;
+        margin-bottom: 20px;
+        text-align: center;
+        white-space: normal !important;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .hero_left .hero_button {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .hero_left .hero_button a {
+        display: inline-block;
+    }
+}
+
+/* Override any conflicting hero styles */
+@media (max-width: 768px) {
+    /* Reset any existing positioning that might interfere */
+    body .grax_tm_all_wrap .grax_tm_hero .details {
+        top: auto !important;
+        position: relative !important;
+        transform: none !important;
+    }
+    
+    /* Ensure hero section has proper structure */
+    .grax_tm_hero.creative {
+        padding: 0 !important;
+    }
+    
+    /* Remove any animations that might interfere with layout */
+    .fn_animation .fn_animation_item {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+}
+
+/* Small Mobile Improvements (under 480px) */
+@media (max-width: 480px) {
+    .hero_left {
+        padding: 30px 15px;
+    }
+    
+    .hero_left .name {
+        font-size: 36px;
+    }
+    
+    .hero_left .job {
+        font-size: 16px !important;
+    }
+    
+    .hero_right {
+        min-height: 40vh;
+    }
+    
+    .hero_left .hero_button a {
+        padding: 12px 25px;
+        min-width: 180px;
+    }
+}
+
+/* Fix for small screens to ensure full width */
+@media (max-width: 480px) {
+    body, html {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    .grax_tm_all_wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    .grax_tm_hero.creative,
+    .grax_tm_hero .container,
+    .hero_split,
+    .hero_left,
+    .hero_right {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        position: relative !important;
+    }
+    
+    .hero_left .content,
+    .hero_left .details {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* Remove any conflicting styles that might be causing issues */
+@media (max-width: 768px) {
+    /* Reset container width */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Reset hero section */
+    .grax_tm_hero.creative {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Reset hero split */
+    .hero_split {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Reset hero left and right */
+    .hero_left, .hero_right {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    /* Reset hero content */
+    .hero_left .content,
+    .hero_left .details {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Reset hero button */
+    .hero_left .hero_button {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+}
+
+/* Reset any conflicting styles that might be affecting section margins */
+@media (max-width: 767px) {
+    /* Reset body and html */
+    body, html {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Reset wrapper */
+    .grax_tm_all_wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Ensure all sections have proper margins */
+    .grax_tm_section {
+        width: 100% !important;
+    }
+    
+    .grax_tm_section .container {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Fix for specific sections */
+    .grax_tm_about .container,
+    .grax_tm_portfolio .container,
+    .grax_tm_services .container,
+    .grax_tm_testimonials .container,
+    .grax_tm_news .container,
+    .grax_tm_contact .container {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
 
@@ -175,24 +402,13 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
 }
 
 @media (max-width: 768px) {
-    .hero_split {
-        flex-direction: column;
+    .grax_tm_hero .details h3.name {
+        white-space: normal;
+        word-wrap: break-word;
     }
     
-    .hero_left {
-        padding: 40px 20px;
-    }
-    
-    .hero_right {
-        min-height: 50vh;
-    }
-    
-    .hero_left .name {
-        font-size: 48px;
-    }
-    
-    .hero_left .job {
-        font-size: 18px;
+    .grax_tm_hero .details {
+        max-width: 90%;
     }
 }
 
