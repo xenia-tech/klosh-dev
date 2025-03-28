@@ -67,8 +67,8 @@
     }
 }
 
-/* Unified Mobile Improvements (up to 767px) */
-@media (max-width: 767px) {
+/* Unified Mobile Improvements (up to 768px) */
+@media (max-width: 768px) {
     /* Global container width and margins */
     .container {
         width: 90% !important;
@@ -90,6 +90,44 @@
         max-width: 90% !important;
         margin-left: auto !important;
         margin-right: auto !important;
+    }
+    
+    /* Mobile Menu Improvements */
+    .grax_tm_mobile_menu {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .grax_tm_mobile_menu .mobile_menu_inner {
+        padding: 15px 20px !important;
+    }
+    
+    .grax_tm_mobile_menu .mobile_in {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    
+    .grax_tm_mobile_menu .logo img {
+        max-width: 80px !important;
+    }
+    
+    .grax_tm_mobile_menu .trigger {
+        margin-right: 0 !important;
+    }
+    
+    .grax_tm_mobile_menu .dropdown {
+        background-color: #fff !important;
+        padding: 20px !important;
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul li {
+        margin-bottom: 15px !important;
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul li a {
+        font-size: 16px !important;
+        color: #333 !important;
     }
     
     /* Fix hero section specifically */

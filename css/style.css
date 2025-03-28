@@ -365,6 +365,132 @@ h6 { font-size: 16px; }
     }
 }
 
+@media (max-width: 1040px) and (min-width: 769px) {
+    /* Switch to mobile menu for tablet */
+    .grax_tm_topbar {
+        display: none !important;
+    }
+    .grax_tm_mobile_menu {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #fff;
+        width: 100%;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Mobile menu styles */
+    .grax_tm_mobile_menu .mobile_menu_inner {
+        width: 100%;
+        height: auto;
+        position: relative;
+        float: left;
+        padding: 15px 0px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .grax_tm_mobile_menu .mobile_in {
+        width: 100%;
+        height: auto;
+        clear: both;
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 35px 0 20px;
+        position: relative;
+    }
+    .grax_tm_mobile_menu .trigger {
+        cursor: pointer;
+        padding: 10px 25px 10px 10px;
+        margin: 0;
+        position: relative;
+        z-index: 1001;
+    }
+    .grax_tm_mobile_menu .hamburger {
+        padding: 0;
+        display: inline-block;
+        cursor: pointer;
+        transition: opacity 0.15s linear;
+        border: 0;
+        background-color: transparent;
+    }
+    .grax_tm_mobile_menu .hamburger-box {
+        width: 30px;
+        height: 18px;
+        display: inline-block;
+        position: relative;
+    }
+    .grax_tm_mobile_menu .hamburger-inner,
+    .grax_tm_mobile_menu .hamburger-inner::before,
+    .grax_tm_mobile_menu .hamburger-inner::after {
+        width: 24px;
+        height: 2px;
+        background-color: #000;
+        position: absolute;
+        transition: transform 0.15s ease;
+    }
+    .grax_tm_mobile_menu .hamburger-inner {
+        top: 50%;
+        display: block;
+        margin-top: -1px;
+    }
+    .grax_tm_mobile_menu .hamburger-inner::before {
+        content: '';
+        display: block;
+        top: -8px;
+    }
+    .grax_tm_mobile_menu .hamburger-inner::after {
+        content: '';
+        display: block;
+        bottom: -8px;
+    }
+    
+    /* Dropdown menu */
+    .grax_tm_mobile_menu .dropdown {
+        display: none;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .grax_tm_mobile_menu .dropdown_inner {
+        padding: 0px 20px;
+    }
+    .grax_tm_mobile_menu .dropdown_inner ul li {
+        margin: 10px 0;
+        list-style-type: none;
+    }
+    .grax_tm_mobile_menu .dropdown_inner ul li a {
+        color: #000;
+        text-decoration: none;
+        display: block;
+        padding: 5px 0;
+        font-size: 16px;
+    }
+    
+    /* Improve contact form on mobile */
+    .grax_tm_contact .fields .first ul {
+        display: block;
+    }
+    .grax_tm_contact .fields .first ul li {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    /* Fix button sizing on mobile */
+    .grax_tm_button a {
+        padding: 12px 25px;
+    }
+    
+    /* Improve spacing for section titles */
+    .grax_tm_title_holder {
+        margin-bottom: 40px;
+    }
+}
+
 @media (max-width: 768px) {
     /* Switch to mobile menu for phones */
     .grax_tm_topbar {
@@ -378,6 +504,8 @@ h6 { font-size: 16px; }
         right: 0;
         z-index: 1000;
         background: #fff;
+        width: 100%;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
     }
     
     /* Mobile menu styles */
@@ -2331,7 +2459,7 @@ body.modal{
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     body, html {
         width: 100%;
         overflow-x: hidden;
@@ -2355,83 +2483,83 @@ body.modal{
 }
 
 @media (max-width: 768px) {
-	.grax_tm_title_holder h3{letter-spacing: 5px;}
-	.grax_tm_hero .name{font-size: 45px;margin-bottom: 5px;}
-	.grax_tm_hero .job{font-size: 17px;}
-	.grax_tm_about .right .list ul{margin: 0px;}
-	.grax_tm_about .right .list ul li{width: 100%;padding-left: 0px;}
-	.grax_tm_portfolio ul li{width: 50%;}
-	.grax_tm_progress_part .part_inner{display: block;}
-	.grax_tm_progress_part .left{width: 100%;padding-right: 0px;float: left;margin-bottom: 20px;}
-	.grax_tm_progress_part .right{width: 100%;padding-left: 0px;}
-	.grax_tm_talk .talk_inner{display: block;}
-	.grax_tm_talk .text{padding-right: 0px;margin-bottom: 30px;}
-	.grax_tm_news .news_list ul li{width: 50%;}
-	.grax_tm_news .news_list ul li .details .date span{margin-left: 0px;}
-	.grax_tm_news .news_list ul li .details .date span:before{display: none;}
-	.grax_tm_contact .contact_inner{display: block;}
-	.grax_tm_contact .left{width: 100%;margin-bottom: 20px;float: left;}
-	.grax_tm_contact .right{width: 100%;padding-left: 0px;}
-	.grax_tm_copyright .copyright_inner{display: block;}
-	.grax_tm_copyright .logo{margin-bottom: 17px;}
-	.grax_tm_copyright .social{margin-bottom: 10px;}
-	.grax_tm_modalbox_news .details .title{font-size: 25px;}
-	.grax_tm_modalbox_news .description_wrap{padding: 20px;}
+    .grax_tm_title_holder h3{letter-spacing: 5px;}
+    .grax_tm_hero .name{font-size: 45px;margin-bottom: 5px;}
+    .grax_tm_hero .job{font-size: 17px;}
+    .grax_tm_about .right .list ul{margin: 0px;}
+    .grax_tm_about .right .list ul li{width: 100%;padding-left: 0px;}
+    .grax_tm_portfolio ul li{width: 50%;}
+    .grax_tm_progress_part .part_inner{display: block;}
+    .grax_tm_progress_part .left{width: 100%;padding-right: 0px;float: left;margin-bottom: 20px;}
+    .grax_tm_progress_part .right{width: 100%;padding-left: 0px;}
+    .grax_tm_talk .talk_inner{display: block;}
+    .grax_tm_talk .text{padding-right: 0px;margin-bottom: 30px;}
+    .grax_tm_news .news_list ul li{width: 50%;}
+    .grax_tm_news .news_list ul li .details .date span{margin-left: 0px;}
+    .grax_tm_news .news_list ul li .details .date span:before{display: none;}
+    .grax_tm_contact .contact_inner{display: block;}
+    .grax_tm_contact .left{width: 100%;margin-bottom: 20px;float: left;}
+    .grax_tm_contact .right{width: 100%;padding-left: 0px;}
+    .grax_tm_copyright .copyright_inner{display: block;}
+    .grax_tm_copyright .logo{margin-bottom: 17px;}
+    .grax_tm_copyright .social{margin-bottom: 10px;}
+    .grax_tm_modalbox_news .details .title{font-size: 25px;}
+    .grax_tm_modalbox_news .description_wrap{padding: 20px;}
 	
-	.grax_tm_intro_fixed_price{display: none;}
-	.grax_tm_intro_content .title_holder h3{letter-spacing: 4px;}
-	.grax_tm_intro_content .demo_list ul{margin: 0px;}
-	.grax_tm_intro_content .demo_list ul li{width: 100%;padding-left: 0px;}
+    .grax_tm_intro_fixed_price{display: none;}
+    .grax_tm_intro_content .title_holder h3{letter-spacing: 4px;}
+    .grax_tm_intro_content .demo_list ul{margin: 0px;}
+    .grax_tm_intro_content .demo_list ul li{width: 100%;padding-left: 0px;}
 	
-	/* Improve contact form on mobile */
-	.grax_tm_contact .fields .first ul {
-	    display: block;
-	}
-	.grax_tm_contact .fields .first ul li {
-	    width: 100%;
-	    margin-bottom: 15px;
-	}
+    /* Improve contact form on mobile */
+    .grax_tm_contact .fields .first ul {
+        display: block;
+    }
+    .grax_tm_contact .fields .first ul li {
+        width: 100%;
+        margin-bottom: 15px;
+    }
 	
-	/* Fix button sizing on mobile */
-	.grax_tm_button a {
-	    padding: 12px 25px;
-	}
+    /* Fix button sizing on mobile */
+    .grax_tm_button a {
+        padding: 12px 25px;
+    }
 	
-	/* Improve spacing for section titles */
-	.grax_tm_title_holder {
-	    margin-bottom: 40px;
-	}
+    /* Improve spacing for section titles */
+    .grax_tm_title_holder {
+        margin-bottom: 40px;
+    }
 }
 
 @media (max-width: 480px) {
-	.grax_tm_hero .name{font-size: 30px;}
-	.grax_tm_hero .job{font-size: 15px;}
-	.grax_tm_portfolio ul{margin: 0px;}
-	.grax_tm_portfolio ul li{width: 100%;padding-left: 0px;}
-	.grax_tm_news .news_list ul{margin: 0px;}
-	.grax_tm_news .news_list ul li{width: 100%;padding-left: 0px;}
+    .grax_tm_hero .name{font-size: 30px;}
+    .grax_tm_hero .job{font-size: 15px;}
+    .grax_tm_portfolio ul{margin: 0px;}
+    .grax_tm_portfolio ul li{width: 100%;padding-left: 0px;}
+    .grax_tm_news .news_list ul{margin: 0px;}
+    .grax_tm_news .news_list ul li{width: 100%;padding-left: 0px;}
 	
-	/* Improve spacing for very small screens */
-	.grax_tm_section {
-	    padding: 60px 0;
-	}
+    /* Improve spacing for very small screens */
+    .grax_tm_section {
+        padding: 60px 0;
+    }
 	
-	/* Fix image sizing on small screens */
-	.grax_tm_portfolio .portfolio_list ul li .image img {
-	    width: 100%;
-	    height: auto;
-	}
+    /* Fix image sizing on small screens */
+    .grax_tm_portfolio .portfolio_list ul li .image img {
+        width: 100%;
+        height: auto;
+    }
 	
-	/* Adjust contact form padding */
-	.grax_tm_contact .fields form {
-	    padding: 0;
-	}
+    /* Adjust contact form padding */
+    .grax_tm_contact .fields form {
+        padding: 0;
+    }
 	
-	/* Fix button text size */
-	.grax_tm_button a {
-	    font-size: 14px;
-	    padding: 10px 20px;
-	}
+    /* Fix button text size */
+    .grax_tm_button a {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
 }
 
 /* Our Work Section Links */

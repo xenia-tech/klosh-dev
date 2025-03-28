@@ -1,3 +1,9 @@
+/* CSS Variables */
+:root {
+    --navbar-opacity: 0.95;
+    --text-color: #333;
+}
+
 /* Link hover styles - removing unwanted lime green hover effect */
 .grax_tm_all_wrap[data-color="lime"] a:hover {
     color: #8C001A;
@@ -132,8 +138,8 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
     }
     
     /* Ensure hero section has proper structure */
-    .grax_tm_hero.creative {
-        padding: 0 !important;
+    body .grax_tm_all_wrap .grax_tm_hero .container {
+        height: auto !important;
     }
     
     /* Remove any animations that might interfere with layout */
@@ -256,7 +262,7 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
 }
 
 /* Reset any conflicting styles that might be affecting section margins */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     /* Reset body and html */
     body, html {
         width: 100% !important;
@@ -418,21 +424,28 @@ body .grax_tm_all_wrap .grax_tm_topbar {
     background-color: #000000;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+/* Remove animate class styles */
+body .grax_tm_all_wrap .grax_tm_topbar.animate {
+    padding: 15px 0;
+    background-color: #000000;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    transform: none;
-    opacity: 1;
-    visibility: visible;
+}
+
+body .grax_tm_all_wrap .grax_tm_topbar .logo img {
+    max-width: 70px;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+
+/* Reset all navbar container spacing */
+.grax_tm_topbar {
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 100;
     transition: none;
-}
-
-/* Reset all navbar container spacing */
-.grax_tm_topbar {
-    width: 100%;
 }
 
 .grax_tm_topbar .container {
@@ -469,18 +482,6 @@ body .grax_tm_all_wrap .grax_tm_topbar .menu {
     padding: 0 !important;
     margin: 0 !important;
     margin-right: 50px !important;
-}
-
-/* Remove animate class styles */
-body .grax_tm_all_wrap .grax_tm_topbar.animate {
-    padding: 15px 0;
-    background-color: #000000;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-}
-
-body .grax_tm_all_wrap .grax_tm_topbar .logo img {
-    max-width: 70px;
-    filter: brightness(0) invert(1); /* Makes the logo white */
 }
 
 /* Always show dark logo, hide light logo */
@@ -560,6 +561,170 @@ body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
     margin-right: 0;
 }
 
+/* Mobile Menu Styling - with higher specificity */
+@media (max-width: 768px) {
+    /* Base mobile menu styling for ALL pages */
+    .grax_tm_mobile_menu {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+        background-color: #000000 !important; /* Dark background for non-home pages */
+    }
+    
+    /* Home page specific styling - transparent background */
+    body.home .grax_tm_mobile_menu {
+        background-color: transparent !important; /* Transparent only on home page */
+        transition: background-color 0.3s ease !important;
+    }
+    
+    /* Mobile menu inner container - ALL pages */
+    .grax_tm_mobile_menu .mobile_menu_inner {
+        padding: 0 !important;
+        min-height: 0 !important;
+        border-bottom: none !important;
+        height: 52px !important; /* Making the container 20% smaller */
+    }
+    
+    /* Mobile menu inner layout - ALL pages */
+    .grax_tm_mobile_menu .mobile_in {
+        padding: 0 20px !important; 
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        min-height: 0 !important;
+        position: relative !important;
+        top: -6px !important; /* Shifting the content up to compensate for the logo size */
+    }
+    
+    /* Logo styling - ALL pages */
+    .grax_tm_mobile_menu .logo {
+        padding: 0 !important; 
+        margin: 0 0 0 -20px !important;
+    }
+    
+    /* Logo image styling - ALL pages */
+    .grax_tm_mobile_menu .logo img {
+        filter: brightness(0) invert(1) !important; /* Make logo white */
+        max-height: 65px !important; /* Keeping the original logo size */
+        width: auto !important;
+    }
+    
+    /* Hamburger menu styling - ALL pages */
+    .grax_tm_mobile_menu .trigger {
+        padding: 4px !important;
+        margin: 0 10px 0 -10px !important;
+        position: relative !important;
+        right: 10px !important;
+    }
+    
+    /* Hamburger styling - ALL pages */
+    .grax_tm_mobile_menu .hamburger {
+        display: block !important;
+        width: 30px !important;
+        height: 18px !important;
+        position: relative !important;
+        right: 0 !important;
+    }
+    
+    /* Hamburger icon color - ALL pages */
+    .grax_tm_mobile_menu .hamburger-inner,
+    .grax_tm_mobile_menu .hamburger-inner::before,
+    .grax_tm_mobile_menu .hamburger-inner::after {
+        background-color: #fff !important;
+    }
+    
+    /* Home page dynamic background class */
+    body.home .grax_tm_mobile_menu.dynamic-bg {
+        background-color: rgba(0, 0, 0, 0.5); /* Base state that will be overridden by JavaScript */
+    }
+    
+    /* Scrolled state styling - ALL pages */
+    .grax_tm_mobile_menu.scrolled {
+        box-shadow: none !important;
+    }
+    
+    /* Dropdown styling - with !important to override any other styles */
+    .grax_tm_mobile_menu .dropdown {
+        display: none;
+        width: 102px !important; 
+        position: absolute !important;
+        right: 30px !important;
+        top: 52px !important; /* Position below the navbar */
+        padding: 15px 20px 0px 0px !important; /* No bottom padding */
+        margin: 10px 10px 0px 10px !important; /* Remove bottom margin */
+        background-color: #000000 !important; /* Black background */
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        z-index: 9999 !important; /* Ensure it appears above other content */
+        box-sizing: border-box !important; /* Include padding in width calculation */
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul {
+        margin-bottom: 0 !important; /* Remove bottom margin */
+        padding-bottom: 0 !important; /* Remove bottom padding */
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul li:last-child {
+        margin-bottom: 0px !important; /* Remove margin from the last item */
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul li:last-child a {
+        padding-bottom: 0px !important; /* Remove padding from the last item's link */
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner {
+        padding-right: 20px !important; /* Increase right padding to move text to the right */
+        text-align: right !important; /* Keep right-align the menu text */
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul li a {
+        color: #FFFFFF !important; /* White text */
+        text-decoration: none !important;
+        display: block !important;
+        padding: 5px 0 !important; /* Remove all padding */
+        font-size: 16px !important;
+        white-space: nowrap !important; /* Prevent text wrapping */
+        overflow: hidden !important; /* Hide overflow text */
+        text-overflow: ellipsis !important; /* Show ellipsis for overflow text */
+        text-align: right !important; /* Keep text right-aligned */
+        transform: translateX(0px) !important; /* No transform */
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul li a:hover {
+        color: #FFFFFF !important; /* Keep white text on hover - no change */
+    }
+}
+
+/* Mobile menu styles with highest specificity */
+@media (max-width: 768px) {
+    body .grax_tm_mobile_menu .dropdown {
+        background-color: #000000 !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        width: 102px !important;
+        right: 30px !important;
+        padding: 15px 20px 0px 0px !important;
+    }
+
+    body .grax_tm_mobile_menu .dropdown_inner ul li a {
+        color: #FFFFFF !important;
+        padding: 5px 0 !important;
+    }
+
+    body .grax_tm_mobile_menu .dropdown_inner ul li a:hover {
+        color: #FFFFFF !important;
+    }
+}
+
+/* Improve spacing for mobile sections */
+.grax_tm_section {
+    padding: 60px 0 !important;
+}
+
 /* News section styling to match portfolio */
 .news_list ul {
     display: grid;
@@ -617,7 +782,7 @@ body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
     right: 0;
     bottom: 0;
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.4s ease;
 }
@@ -709,7 +874,7 @@ body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
 
 /* Make sure the news title turns burgundy on hover */
 .news_list ul li:hover .title a {
-    color: #8C001A !important;
+    color: #8C001A;
 }
 
 /* Ensure the news grid is always 3 columns */
@@ -734,18 +899,6 @@ body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
 /* Mobile menu fixes */
 .grax_tm_mobile_menu {
     background-color: #000000;
-}
-
-.grax_tm_mobile_menu .dropdown {
-    background-color: #000000;
-}
-
-.grax_tm_mobile_menu .dropdown_inner ul li a {
-    color: #FFFFFF !important;
-}
-
-.grax_tm_mobile_menu .dropdown_inner ul li a:hover {
-    color: #FFFFFF !important;
 }
 
 /* Contact Form Styles */
@@ -870,6 +1023,63 @@ body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
     
     .grax_tm_news .news_list ul {
         margin-top: 0 !important; /* Remove additional margin */
+    }
+}
+
+/* Remove padding above hero section on desktop */
+@media (min-width: 769px) {
+    .grax_tm_hero.grax_tm_section {
+        padding-top: 0 !important;
+    }
+    
+    /* Remove spacing underneath hero, about, portfolio, and news sections on homepage */
+    .home .grax_tm_hero.grax_tm_section,
+    .home .grax_tm_section#about,
+    .home .grax_tm_section#portfolio,
+    .home .grax_tm_section#news {
+        padding-bottom: 0 !important;
+    }
+    
+    /* Remove additional spacing in section containers */
+    .home .grax_tm_about,
+    .home .grax_tm_portfolio,
+    .home .grax_tm_news {
+        padding-bottom: 0 !important;
+    }
+    
+    /* Adjust spacing for section content */
+    .home .grax_tm_about .about_inner,
+    .home .grax_tm_portfolio .portfolio_list,
+    .home .grax_tm_news .news_list {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Remove padding from About section on desktop */
+@media (min-width: 769px) {
+    div#about.grax_tm_section {
+        padding: 0 !important;
+    }
+}
+
+/* Remove padding from Portfolio section on desktop */
+@media (min-width: 769px) {
+    div#portfolio.grax_tm_section {
+        padding: 0 !important;
+    }
+}
+
+/* Remove padding from News section on desktop */
+@media (min-width: 769px) {
+    div#news.grax_tm_section {
+        padding: 0 !important;
+    }
+}
+
+/* Remove padding from Contact section on desktop */
+@media (min-width: 769px) {
+    div#contact.grax_tm_section {
+        padding: 0 !important;
     }
 }
 

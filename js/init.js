@@ -376,6 +376,39 @@ function grax_tm_hamburger(){
 		jQuery('.grax_tm_mobile_menu .dropdown').slideUp();
 		return false;
 	});
+	
+	// Add scroll effect to mobile menu - ONLY for home page
+	jQuery(window).on('scroll', function() {
+		// Only apply this effect on the home page
+		if(!jQuery('body').hasClass('home')) {
+			return;
+		}
+		
+		var mobileNavbar = jQuery('.grax_tm_mobile_menu');
+		var WinOffset = jQuery(window).scrollTop();
+		
+		// Get the hero section
+		var hero = jQuery('.grax_tm_hero');
+		var heroHeight = hero.outerHeight();
+		
+		// Calculate a more gradual percentage
+		// We want it to be fully dark by 2/3 through the hero section
+		var transitionPoint = heroHeight * 0.67; // Transition completes at 2/3 of hero height
+		var scrollPercentage = Math.max(0, Math.min(WinOffset / transitionPoint, 1));
+		
+		// Apply the background with calculated opacity and !important flag
+		if(scrollPercentage > 0) {
+			mobileNavbar.addClass('scrolled dynamic-bg');
+			// Set the inline style directly with !important to override any CSS
+			mobileNavbar[0].style.setProperty('background-color', 'rgba(0, 0, 0, ' + scrollPercentage * 0.9 + ')', 'important');
+			// Ensure no box shadow
+			mobileNavbar[0].style.setProperty('box-shadow', 'none', 'important');
+		} else {
+			mobileNavbar.removeClass('scrolled dynamic-bg');
+			mobileNavbar[0].style.setProperty('background-color', 'transparent', 'important');
+			mobileNavbar[0].style.setProperty('box-shadow', 'none', 'important');
+		}
+	});
 }
 
 // -----------------------------------------------------
