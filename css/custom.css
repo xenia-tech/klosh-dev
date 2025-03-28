@@ -126,6 +126,29 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
     .hero_left .hero_button a {
         display: inline-block;
     }
+    
+    /* Enhanced gradient overlay for mobile to improve navbar text readability */
+    .hero_right .image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40% !important; /* Slightly reduce height from 50% to 40% */
+        background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%) !important; /* Reduced opacity for more subtle effect */
+        z-index: 5 !important; /* Ensure it's on top */
+    }
+    
+    /* Ensure the hero image is displayed properly */
+    .hero_right .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 /* Override any conflicting hero styles */
@@ -416,6 +439,11 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
     .grax_tm_hero .details {
         max-width: 90%;
     }
+}
+
+/* Mobile gradient overlay */
+.mobile-gradient-overlay {
+    display: none;
 }
 
 /* Custom Header Style */
