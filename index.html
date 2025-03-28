@@ -90,12 +90,12 @@
     </div>
     <!-- /HEADER -->
     <!-- HERO -->
-    <div class="grax_tm_hero creative grax_tm_section" id="home" role="region" aria-labelledby="hero-heading">
+    <div class="grax_tm_hero creative mobile-hero-spacing-fix-march2025 grax_tm_section" id="home" role="region" aria-labelledby="hero-heading">
         <div class="hero_split">
             <div class="hero_left">
                 <div class="content">
                     <div class="details">
-                        <h3 class="name" id="hero-heading">Hospitality <span class="highlight">Web Development</span></h3>
+                        <h3 class="name" id="hero-heading">Hospitality<br><span class="highlight">Web Development</span></h3>
                         <div class="job">At Klosh, we create professional websites for restaurants, hotels, cafés, bars, and other hospitality businesses—designed to impress, built to convert.</div>
                         <div class="hero_button">
                             <a href="https://calendly.com/will-klosh/30min" class="grax_tm_button" data-style="dark" target="_blank">
@@ -391,6 +391,23 @@
             console.log("Navbar scroll effect initialized");
         }
     })();
+</script>
+
+<!-- Mobile hero spacing fix - March 2025 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.innerWidth <= 768) {
+            const jobElement = document.querySelector('.hero_left .job');
+            if (jobElement) {
+                jobElement.style.marginBottom = '65px';
+            }
+            
+            const buttonElement = document.querySelector('.hero_left .hero_button');
+            if (buttonElement) {
+                buttonElement.style.marginTop = '45px';
+            }
+        }
+    });
 </script>
 
 <!-- Force reload by adding random query parameter -->

@@ -76,6 +76,7 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
         width: 100%;
         padding: 20px;
         min-height: auto;
+        padding-bottom: 50px !important; /* Reduced padding for mobile screens */
     }
     
     .hero_right {
@@ -103,14 +104,25 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
     }
     
     .hero_left .name {
-        font-size: 36px;
+        font-size: 32px;
         margin-bottom: 15px;
         text-align: center;
         white-space: normal;
+        line-height: 1.2;
     }
     
+    /* Remove the rule that keeps "Web Development" on the same line */
+    /* 
+    .hero_left .name .highlight,
+    .grax_tm_hero .details h3.name .highlight {
+        display: inline-block;
+        white-space: nowrap;
+        line-height: 1.2;
+    }
+    */
+    
     .hero_left .job {
-        font-size: 16px !important;
+        font-size: 18px !important;
         margin-bottom: 20px;
         text-align: center;
         white-space: normal !important;
@@ -149,6 +161,43 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
         width: 100%;
         height: 100%;
     }
+    
+    body .grax_tm_all_wrap .grax_tm_hero .details {
+        padding-top: 30px;
+        max-width: 100%;
+    }
+    
+    .hero_left .content {
+        padding: 0;
+        max-width: 100%;
+    }
+    
+    /* Increase hero heading size for mobile */
+    .grax_tm_hero .details h3.name,
+    .hero_left .name,
+    .grax_tm_hero .name {
+        font-size: 32px !important; /* Moderate increase from 24px */
+        margin-bottom: 15px;
+        text-align: center;
+        white-space: normal;
+        line-height: 1.2;
+    }
+    
+    .hero_left .job,
+    .grax_tm_hero .job {
+        font-size: 18px !important;
+        margin-bottom: 20px;
+        text-align: center;
+        white-space: normal !important;
+    }
+    
+    /* Remove about section top padding for mobile */
+    .grax_tm_about,
+    .grax_tm_section#about,
+    div#about.grax_tm_section {
+        padding: 0 !important;
+        margin-top: 0 !important;
+    }
 }
 
 /* Override any conflicting hero styles */
@@ -177,10 +226,13 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
 @media (max-width: 480px) {
     .hero_left {
         padding: 30px 15px;
+        padding-bottom: 70px; /* Increase bottom padding for more white space */
     }
     
-    .hero_left .name {
-        font-size: 36px;
+    /* Reduce font size when text needs to wrap on very small screens */
+    .hero_left .name,
+    .grax_tm_hero .details h3.name {
+        font-size: 28px !important; /* Reduced from 32px */
     }
     
     .hero_left .job {
@@ -194,6 +246,42 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
     .hero_left .hero_button a {
         padding: 12px 25px;
         min-width: 180px;
+    }
+    
+    /* Add more space after the button */
+    .hero_left .hero_button {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}
+
+/* Extra Small Mobile Improvements (under 360px) */
+@media (max-width: 360px) {
+    /* Further reduce font size for extra small screens */
+    .hero_left .name,
+    .grax_tm_hero .details h3.name {
+        font-size: 24px !important;
+    }
+    
+    .hero_left .job {
+        font-size: 15px !important;
+    }
+    
+    /* Even more padding for the smallest screens */
+    .hero_left {
+        padding-bottom: 80px;
+    }
+}
+
+/* Specific fix for screens between 360px and 480px where spacing issues occur */
+@media (min-width: 360px) and (max-width: 480px) {
+    .hero_left {
+        padding-bottom: 130px !important;
+    }
+    
+    /* Ensure the button has enough space below it */
+    .hero_left .hero_button {
+        margin-bottom: 55px;
     }
 }
 
@@ -323,6 +411,188 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
         max-width: 90% !important;
         margin-left: auto !important;
         margin-right: auto !important;
+    }
+}
+
+/* Mobile-specific hero section - completely separate from desktop */
+@media (max-width: 768px) {
+    /* Reset and override desktop hero styles */
+    .grax_tm_hero {
+        height: auto !important;
+        min-height: auto !important;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Create a mobile-first hero container */
+    .hero_split {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        min-height: unset;
+    }
+    
+    /* Mobile hero content section */
+    .hero_left {
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 10;
+        background-color: #fff;
+        padding: 40px 20px;
+        margin: 0;
+        min-height: unset;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile hero image section */
+    .hero_right {
+        width: 100%;
+        height: 40vh;
+        min-height: 300px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Reset all positioning and transform styles */
+    body .grax_tm_all_wrap .grax_tm_hero .details {
+        position: static !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        text-align: center;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    /* Content container */
+    .hero_left .content {
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+        display: block;
+        position: static;
+    }
+    
+    /* Hero heading */
+    .hero_left .name,
+    .grax_tm_hero .details h3.name {
+        font-size: 32px !important;
+        margin-bottom: 15px;
+        text-align: center;
+        white-space: normal;
+        line-height: 1.2;
+    }
+    
+    /* Remove the rule that keeps "Web Development" on the same line */
+    /* 
+    .hero_left .name .highlight,
+    .grax_tm_hero .details h3.name .highlight {
+        display: inline-block;
+        white-space: nowrap;
+    }
+    */
+    
+    /* Hero subtitle */
+    body .grax_tm_all_wrap .grax_tm_hero .hero_left .job,
+    body .hero_left .job {
+        font-size: 18px !important;
+        margin-bottom: 45px !important; /* Increased from 25px to 45px (+20px) */
+        text-align: center !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    /* Button container with fixed spacing */
+    body .grax_tm_all_wrap .grax_tm_hero .hero_left .hero_button,
+    body .hero_left .hero_button {
+        margin: 0 auto !important;
+        text-align: center !important;
+        padding-bottom: 30px !important; /* Fixed padding below button */
+        margin-top: 45px !important; /* Ensure spacing from text */
+    }
+    
+    /* Button styling */
+    .hero_left .hero_button a {
+        display: inline-block;
+        padding: 15px 30px;
+        min-width: 200px;
+    }
+    
+    /* Fixed spacing between hero and about section */
+    .hero_split + #about {
+        margin-top: 0;
+    }
+    
+    /* Enhanced gradient overlay for mobile to improve navbar text readability */
+    .hero_right .image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%) !important;
+        z-index: 5 !important;
+    }
+    
+    /* Ensure the hero image is displayed properly */
+    .hero_right .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* Remove about section top padding for mobile */
+    .grax_tm_about {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+    /* Remove portfolio section padding for mobile */
+    .grax_tm_portfolio,
+    .grax_tm_section#portfolio,
+    div#portfolio.grax_tm_section {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Remove contact section padding for mobile */
+    .grax_tm_contact,
+    .grax_tm_section#contact,
+    div#contact.grax_tm_section {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* Custom spacing fix for mobile hero - March 2025 update */
+@media (max-width: 768px) {
+    body .grax_tm_all_wrap .grax_tm_hero.mobile-hero-spacing-fix-march2025 .hero_left .job {
+        margin-bottom: 65px !important; /* Very large margin to ensure visibility of change */
+    }
+    
+    body .grax_tm_all_wrap .grax_tm_hero.mobile-hero-spacing-fix-march2025 .hero_left .hero_button {
+        margin-top: 65px !important; /* Additional spacing from top */
+    }
+    
+    /* Inline style override through JavaScript */
+    #mobile-hero-spacing-fix {
+        display: none;
+    }
+    
+    /* Reduce news section padding for mobile */
+    .grax_tm_news,
+    .grax_tm_section#news,
+    div#news.grax_tm_section {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+        margin: 0 !important;
     }
 }
 
