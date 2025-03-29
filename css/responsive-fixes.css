@@ -141,6 +141,8 @@
         flex-direction: column !important;
         width: 100% !important;
         max-width: 100% !important;
+        min-height: auto !important;
+        margin-bottom: 0 !important;
     }
     
     /* Image at top, full width */
@@ -199,7 +201,6 @@
     /* Ensure button is visible and centered */
     .hero_left .hero_button {
         text-align: center !important;
-        margin-top: 25px !important;
         width: 100% !important;
         display: flex !important;
         justify-content: center !important;
@@ -210,17 +211,20 @@
     .hero_left .hero_button a {
         display: inline-block !important;
         font-size: 14px !important;
-        padding: 10px 20px !important;
         margin: 0 auto !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
     
     /* Fix About Us section layout for mobile */
-    .grax_tm_about .about_inner {
+    .grax_tm_about .about_inner, 
+    div.about_inner {
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
+        padding-left: 0px !important; /* Remove left padding */
+        padding-right: 0px !important; /* Remove right padding */
+        margin: 0 !important;
     }
     
     .grax_tm_about .about_inner .left {
@@ -228,21 +232,73 @@
         padding-right: 0 !important;
         order: 1 !important; /* Text first */
         margin-bottom: 30px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
     
+    /* Reset all About Us image-related elements for mobile */
     .grax_tm_about .about_inner .right {
         width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none !important;
+        display: block !important;
         order: 2 !important; /* Image below */
     }
     
-    .grax_tm_about .about_inner .text {
-        width: 100% !important;
-        text-align: center !important;
-    }
-    
-    .grax_tm_about .about_inner .image {
+    /* Force the image to be full width of its container */
+    .grax_tm_about .about_inner .right .image {
         width: 100% !important;
         height: auto !important;
+        position: relative !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    /* Make the background div full width of its container */
+    .grax_tm_about .about_inner .right .image .main {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-size: cover !important;
+        background-position: center !important;
+        border-radius: 0 !important;
+    }
+    
+    /* Set the img to be full width but invisible (used for sizing) */
+    .grax_tm_about .about_inner .right .image img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        opacity: 0 !important;
+        min-width: 100% !important;
+    }
+    
+    /* Add padding to text container */
+    .grax_tm_about .about_inner .left {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Restore text alignment rule */
+    .grax_tm_about .about_inner .text,
+    .grax_tm_about .about_inner .text p,
+    #about p {
+        width: 100% !important;
+        text-align: left !important; /* Left alignment for all paragraph text */
+    }
+    
+    /* Add padding above About Us heading */
+    #about .grax_tm_title_holder {
+        padding-top: 60px !important;
     }
     
     /* Fix other sections */
@@ -281,6 +337,11 @@
         padding: 0 0 30px;
     }
     
+    /* Fix portfolio section spacing */
+    div.portfolio_list {
+        padding: 0px !important; /* Remove the 40px padding */
+    }
+    
     /* Fix contact info spacing */
     .grax_tm_contact .info_list ul li {
         margin-bottom: 25px;
@@ -294,6 +355,22 @@
         visibility: visible !important;
         transform: none !important;
         animation: none !important;
+    }
+    
+    /* Correctly target the hero button margin */
+    body .grax_tm_all_wrap .grax_tm_hero.mobile-hero-spacing-fix-march2025 .hero_left .hero_button {
+        margin-top: 40px !important; /* Set to 40px as requested */
+    }
+    
+    /* Target the job div and reduce its bottom margin */
+    body .grax_tm_all_wrap .grax_tm_hero.mobile-hero-spacing-fix-march2025 .hero_left .job {
+        margin-bottom: 0px !important; /* Set to 0px as requested */
+    }
+    
+    /* Reduce only the bottom padding of the hero_left section */
+    body .grax_tm_all_wrap .grax_tm_hero.mobile-hero-spacing-fix-march2025 .hero_left,
+    div.hero_left {
+        padding-bottom: 20px !important; /* Reduced bottom padding only */
     }
 }
 
