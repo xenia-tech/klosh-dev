@@ -283,19 +283,30 @@
     
     /* Add padding above the About Us heading */
     #about .grax_tm_title_holder {
-        padding-top: 60px !important;
+        padding-top: 70px !important;
+        padding-bottom: 50px !important;
+        margin: 0 !important;
     }
     
     /* Add padding above the Our Work heading */
     #portfolio .grax_tm_title_holder {
         padding-top: 60px !important;
-        margin-bottom: 50px !important; /* Changed from 40px to 50px */
+        padding-bottom: 60px !important;
+        margin: 0 !important;
     }
     
     /* Add padding above the Get in Touch heading with same spacing as About Us */
     #contact .grax_tm_title_holder {
-        padding-top: 60px !important;
-        margin-bottom: 40px !important;
+        padding-top: 70px !important;
+        padding-bottom: 50px !important;
+        margin: 0 !important;
+    }
+    
+    /* Ensure news title holder has proper spacing */
+    #news .grax_tm_title_holder {
+        padding-top: 70px !important;
+        padding-bottom: 60px !important;
+        margin: 0 !important;
     }
     
     /* Make the background div full width of its container */
@@ -454,8 +465,9 @@
     
     /* Ensure news title holder has proper spacing */
     #news .grax_tm_title_holder {
-        padding-top: 60px !important;
-        margin-bottom: 50px !important; /* Changed from 30px to 50px */
+        padding-top: 70px !important;
+        padding-bottom: 60px !important;
+        margin-bottom: 0px !important;
     }
     
     /* Target the news section with all possible selectors to ensure padding is removed */
@@ -485,6 +497,85 @@
     /* Remove bottom margin from paragraph in contact section */
     .grax_tm_contact .left .text p {
         margin-bottom: 0 !important;
+    }
+    
+    /* Mobile News Slider - Enhanced */
+    .news_list {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        padding: 0 15px !important;
+    }
+    
+    .news_list::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .news_list ul {
+        display: flex !important;
+        grid-template-columns: none !important;
+        gap: 15px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: auto !important;
+    }
+    
+    .news_list ul li {
+        min-width: 85% !important;
+        width: 85% !important;
+        flex: 0 0 auto !important;
+        scroll-snap-align: center;
+        padding: 0 !important;
+        margin-right: 5px !important;
+    }
+    
+    .news_list ul li .list_inner {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .news_list ul li .image {
+        height: 200px !important;
+    }
+    
+    .news_list ul li .details {
+        padding: 15px !important;
+    }
+    
+    .news_list ul li .details .title {
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .news_list ul li .details .date {
+        font-size: 12px !important;
+    }
+    
+    .slider-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        gap: 10px;
+    }
+    
+    .slider-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .slider-dot.active {
+        background-color: #000;
+        transform: scale(1.2);
     }
     
     /* Mobile footer text size and line height adjustments */

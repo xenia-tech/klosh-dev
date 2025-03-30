@@ -45,7 +45,7 @@ a, button, .portfolio_item, .portfolio_image img {
 }
 
 /* Fix for mobile menu positioning */
-@media (max-width: 1040px) {
+@media (max-width: 1024px) {
   .grax_tm_mobile_menu .mobile_menu_inner {
     padding-top: 80px;
   }

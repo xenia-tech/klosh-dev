@@ -200,6 +200,14 @@ body .grax_tm_all_wrap .grax_tm_hero .details {
     }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Tablet-specific styles */
+}
+
+@media (min-width: 1025px) {
+    /* Desktop-specific styles */
+}
+
 /* Override any conflicting hero styles */
 @media (max-width: 768px) {
     /* Reset any existing positioning that might interfere */
@@ -1289,7 +1297,7 @@ body .grax_tm_all_wrap .grax_tm_topbar .logo .dark {
 }
 
 /* Desktop-specific spacing adjustments - improved approach */
-@media (min-width: 1041px) {
+@media (min-width: 1025px) {
     /* Reduce bottom spacing on main components */
     .grax_tm_portfolio {
         padding-bottom: 0 !important;
