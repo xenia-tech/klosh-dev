@@ -2,8 +2,8 @@
    This file contains improvements for mobile and tablet displays
 */
 
-/* Large Desktop Improvements (1041px - 1199px) */
-@media (max-width: 1199px) and (min-width: 1041px) {
+/* Large Desktop Improvements (1025px - 1199px) */
+@media (max-width: 1199px) and (min-width: 1025px) {
     /* Improve container padding */
     .container {
         padding: 0 30px;
@@ -39,8 +39,8 @@
     }
 }
 
-/* Tablet Improvements (768px - 1040px) */
-@media (max-width: 1040px) and (min-width: 769px) {
+/* Tablet Improvements (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
     /* Improve spacing for tablet */
     .grax_tm_hero .content {
         padding: 0 15px;
@@ -599,6 +599,76 @@
     /* Increase footer top margin */
     .grax_tm_footer {
         margin-top: 90px !important;
+    }
+}
+
+/* Desktop Section Padding Adjustment (over 1024px) */
+@media (min-width: 1025px) {
+    /* Reduce section top padding from 130px to 100px */
+    .grax_tm_about {
+        padding-top: 100px !important;
+    }
+    
+    .grax_tm_portfolio {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+    }
+    
+    .grax_tm_news {
+        padding-top: 100px !important;
+        padding-bottom: 90px !important;
+    }
+    
+    .grax_tm_contact {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+    }
+    
+    /* Remove margin from portfolio grid */
+    .portfolio_grid {
+        margin-top: 0 !important;
+    }
+    
+    /* Remove padding from portfolio list */
+    .grax_tm_portfolio .portfolio_list {
+        padding-top: 0 !important;
+    }
+    
+    /* Add padding below the Our Work heading */
+    h3#portfolio-heading {
+        margin-bottom: 80px !important;
+    }
+    
+    /* Add padding below the Latest News heading */
+    .grax_tm_news .grax_tm_title_holder h3 {
+        margin-bottom: 80px !important;
+    }
+    
+    /* Add padding below the Get in Touch heading */
+    .grax_tm_contact .grax_tm_title_holder h3 {
+        margin-bottom: 80px !important;
+    }
+    
+    /* Remove padding from news list */
+    .grax_tm_news .news_list {
+        padding-top: 0 !important;
+    }
+    
+    /* Fix contact inner padding and margin at all desktop sizes */
+    .grax_tm_contact .contact_inner,
+    div.contact_inner {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+}
+
+/* Override for 1200px breakpoint specifically */
+@media (min-width: 1200px) and (max-width: 1200px) {
+    /* Reset any 1200px-specific styles for contact section */
+    .grax_tm_contact .contact_inner,
+    div.contact_inner {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
     }
 }
 
