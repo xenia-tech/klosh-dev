@@ -662,6 +662,22 @@
     }
 }
 
+/* Desktop-specific section width settings (≥1025px) */
+@media (min-width: 1025px) {
+    /* Apply 90% width with max-width of 1200px to all main sections on the homepage */
+    .grax_tm_section .container {
+        width: 90%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Adjust hero heading, text, and button position */
+    body .grax_tm_all_wrap .grax_tm_hero .details {
+        top: calc(50% - 200px) !important;
+    }
+}
+
 /* Override for 1200px breakpoint specifically */
 @media (min-width: 1200px) and (max-width: 1200px) {
     /* Reset any 1200px-specific styles for contact section */
