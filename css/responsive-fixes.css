@@ -25,7 +25,7 @@
     
     /* Improve about section spacing */
     .grax_tm_about .about_inner {
-        padding: 0 20px;
+        padding: 0;
     }
     
     /* Ensure proper button sizing */
@@ -43,8 +43,25 @@
 @media (max-width: 1024px) and (min-width: 769px) {
     /* Improve spacing for tablet */
     .grax_tm_hero .content {
-        padding: 0;
+        padding: 0 !important;
         margin-top: -100px; /* Move hero content up by 100px */
+    }
+    
+    /* Fix spacing inside the blue box - remove right side empty space */
+    .hero_left .job,
+    .grax_tm_hero .hero_left .job {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 0 !important;
+    }
+    
+    /* Fix spacing inside the blue box - make details container full width */
+    .grax_tm_hero .details,
+    .hero_left .details {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
     }
     
     /* Remove right padding from navigation menu */
@@ -52,32 +69,8 @@
         padding-right: 0 !important;
     }
     
-    /* Add consistent 100px top padding to all main sections */
-    .grax_tm_about,
-    .grax_tm_portfolio,
-    .grax_tm_news,
-    .grax_tm_contact {
-        padding-top: 100px !important;
-        padding-bottom: 0 !important;
-        margin: 0 !important;
-    }
-    
-    /* Remove spacing between section headings and content */
-    .grax_tm_title_holder {
-        padding-top: 0 !important;
-        padding-bottom: 20px !important;
-        margin: 0 !important;
-    }
-    
-    /* Add 20px bottom margin to the button */
-    .grax_tm_button a,
-    a.grax_tm_button {
-        margin-bottom: 20px !important;
-        display: block !important;
-    }
-    
     .grax_tm_about .about_inner {
-        padding: 0 !important;
+        padding: 0 15px;
     }
     
     /* Match desktop settings for portfolio/Our Work section */
@@ -121,23 +114,153 @@
         padding: 0;
     }
     
-    /* Set About Us section to 90% width */
-    .grax_tm_about .container {
-        width: 90% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+    /* Improve contact form on tablet */
+    .grax_tm_contact .fields {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .grax_tm_contact .fields form {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .grax_tm_contact .fields form .first ul {
+        margin: 0 !important;
         padding: 0 !important;
     }
     
-    /* Improve contact form on tablet */
-    .grax_tm_contact .fields {
-        padding: 0 15px;
+    .grax_tm_contact .fields form .first ul li {
+        margin-bottom: 20px !important;
+    }
+    
+    .grax_tm_contact .fields form input,
+    .grax_tm_contact .fields form textarea {
+        padding: 15px !important;
     }
     
     /* Ensure buttons are properly sized */
     .grax_tm_button a {
         padding: 12px 30px;
         display: inline-block;
+    }
+    
+    /* Remove top padding from news_list */
+    #news .news_list,
+    .grax_tm_news .news_list {
+        padding-top: 0 !important;
+    }
+    
+    /* Remove top margin from news list ul */
+    #news .news_list ul,
+    .grax_tm_news .news_list ul {
+        margin-top: 0 !important;
+    }
+    
+    /* Remove top padding from portfolio_list */
+    #portfolio .portfolio_list,
+    .grax_tm_portfolio .portfolio_list {
+        padding-top: 0 !important;
+    }
+    
+    /* Remove bottom margin from paragraphs in contact section */
+    #contact p,
+    .grax_tm_contact p,
+    .contact_inner p {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Target main sections with high specificity */
+    body .grax_tm_all_wrap .grax_tm_section#about .grax_tm_about,
+    body .grax_tm_all_wrap .grax_tm_section#portfolio .grax_tm_portfolio,
+    body .grax_tm_all_wrap .grax_tm_section#news .grax_tm_news,
+    body .grax_tm_all_wrap .grax_tm_section#contact .grax_tm_contact {
+        padding: 100px 0px 0px 0px !important;
+        margin: 0px 0px 0px 0px !important;
+    }
+    
+    /* Remove padding from About Us section container */
+    #about .container {
+        padding: 0 !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Set News section container width to 90% */
+    #news .container {
+        padding: 0 !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Set Portfolio section container width to 90% */
+    #portfolio .container {
+        padding: 0 !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Set Contact section container width to 90% */
+    #contact .container {
+        padding: 0 !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Make contact section display side by side on tablet */
+    #contact .contact_inner {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+    }
+    
+    #contact .contact_inner .left {
+        width: 45% !important;
+        padding-right: 20px !important;
+    }
+    
+    #contact .contact_inner .right {
+        width: 55% !important;
+        padding-left: 20px !important;
+        padding-right: 0px !important;
+    }
+    
+    /* Remove margin and padding from contact inner */
+    .contact_inner, 
+    div.contact_inner {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+    
+    /* Ensure contact_inner has no padding */
+    #contact .contact_inner,
+    body .grax_tm_all_wrap .grax_tm_section#contact .grax_tm_contact .contact_inner {
+        padding: 0px !important;
+    }
+    
+    /* Add 80px bottom margin to section headings */
+    #portfolio .grax_tm_title_holder,
+    #news .grax_tm_title_holder,
+    #contact .grax_tm_title_holder {
+        margin-bottom: 80px !important;
+    }
+}
+
+/* Desktop and tablet styles (769px and above) */
+@media (min-width: 769px) {
+    /* Add 80px bottom margin to About Us section heading */
+    #about .grax_tm_title_holder {
+        margin-bottom: 80px;
+    }
+    
+    /* Remove padding from about_inner for desktop and tablet */
+    .grax_tm_about .about_inner {
+        padding: 0 !important;
     }
 }
 
@@ -166,17 +289,6 @@
     
     #about.grax_tm_section {
         padding-bottom: 20px !important; /* Reduced from 70px to 20px */
-    }
-    
-    /* Remove the 150px bottom margin from About section for mobile */
-    .grax_tm_about {
-        margin-bottom: 0 !important;
-    }
-    
-    /* CRITICAL FIX: Set Our Work section title padding for mobile */
-    .grax_tm_portfolio .grax_tm_title_holder {
-        padding: 70px 0 60px 0 !important;
-        margin: 0 !important;
     }
     
     .grax_tm_section .container {
@@ -351,9 +463,9 @@
     }
     
     /* Remove the excessive space after the About section image */
-    /* .grax_tm_about {
-        margin-bottom: 0 !important;
-    } */
+    .grax_tm_about {
+        margin-bottom: 0 !important; /* Override the 150px margin from style.css */
+    }
     
     /* Add padding above the About Us heading */
     #about .grax_tm_title_holder {
@@ -728,6 +840,12 @@
         padding-top: 0 !important;
     }
     
+    /* Remove padding from contact_inner for desktop */
+    #contact .contact_inner,
+    body .grax_tm_all_wrap .grax_tm_section#contact .grax_tm_contact .contact_inner {
+        padding: 0px !important;
+    }
+    
     /* Fix contact inner padding and margin at all desktop sizes */
     .grax_tm_contact .contact_inner,
     div.contact_inner {
@@ -844,9 +962,4 @@
 /* Reduce space between social media icons by 25% */
 .grax_tm_footer .social_icons {
     gap: 15px !important;
-}
-
-/* Remove padding from about_inner */
-.grax_tm_about .about_inner {
-    padding: 0 !important;
 }
