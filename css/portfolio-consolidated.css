@@ -1,0 +1,259 @@
+/* 
+ * Consolidated Portfolio Styles
+ * This file combines styles from portfolio.css and related portfolio styles from other CSS files
+ * Ensures consistent styling and proper z-index hierarchy across the site
+ */
+
+/* ----------------------------------------
+   Portfolio Grid Layout
+   ---------------------------------------- */
+
+.portfolio_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Individual Portfolio Item Container */
+.portfolio_item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1; /* Ensures proper z-index hierarchy with navigation */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+}
+
+/* Full-width Portfolio Item */
+.portfolio_item.large {
+    grid-column: span 2;
+}
+
+/* Image Container with 16:9 Aspect Ratio */
+.portfolio_image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Portfolio Image Styling - Implements dual-loading system */
+.portfolio_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1; /* Changed from 0 to 1 to make images visible */
+    transition: transform 0.4s ease;
+}
+
+.portfolio_image .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease;
+}
+
+.portfolio_item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio_item:hover .portfolio_image img {
+    transform: scale(1.08);
+}
+
+.portfolio_item:hover .portfolio_image .main {
+    transform: scale(1.08);
+}
+
+.portfolio_item:hover .portfolio_title {
+    color: #8C001A; /* Using the theme's accent color */
+}
+
+/* Portfolio Content Area */
+.portfolio_content {
+    padding: 20px;
+}
+
+/* Portfolio Title Styling */
+.portfolio_title {
+    font-size: 1.4em;
+    margin: 0 0 10px 0;
+    color: #000;
+    font-family: "Inter", sans-serif;
+    transition: color 0.3s ease;
+}
+
+/* Portfolio Description Text */
+.portfolio_desc {
+    font-size: 0.95em;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+    font-family: "Inter", sans-serif;
+}
+
+/* Portfolio More Text */
+.portfolio_more {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+    font-family: "Inter", sans-serif;
+}
+
+/* ----------------------------------------
+   Portfolio Modal Styles
+   ---------------------------------------- */
+
+.portfolio_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 99; /* Below the navigation menu (z-index: 100) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.portfolio_modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.portfolio_modal_content {
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+.portfolio_modal_close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio_modal_image {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio_modal_image img,
+.portfolio_modal_image .main {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio_modal_details {
+    padding: 30px;
+}
+
+.portfolio_modal_title {
+    font-size: 2em;
+    margin: 0 0 20px 0;
+    color: #000;
+    font-family: "Inter", sans-serif;
+}
+
+.portfolio_modal_desc {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-family: "Inter", sans-serif;
+}
+
+/* ----------------------------------------
+   Responsive Layout Adjustments
+   ---------------------------------------- */
+
+@media screen and (max-width: 768px) {
+    .portfolio_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio_item.large {
+        grid-column: span 1;
+    }
+    
+    .portfolio_modal_image {
+        height: 30vh;
+    }
+    
+    .portfolio_modal_title {
+        font-size: 1.5em;
+    }
+}
+
+/* ----------------------------------------
+   Dark Mode Styles
+   ---------------------------------------- */
+
+body.dark .portfolio_item {
+    background: #2a2a2a;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .portfolio_title {
+    color: #fff;
+}
+
+body.dark .portfolio_desc {
+    color: #ccc;
+}
+
+body.dark .portfolio_more {
+    color: #fff;
+}
+
+body.dark .portfolio_modal_content {
+    background: #2a2a2a;
+}
+
+body.dark .portfolio_modal_title {
+    color: #fff;
+}
+
+body.dark .portfolio_modal_desc {
+    color: #ccc;
+}
+
+body.dark .portfolio_modal_close {
+    background: #333;
+    color: #fff;
+}
