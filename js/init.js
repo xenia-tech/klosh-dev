@@ -573,7 +573,7 @@ function grax_tm_contact_form(){
 			
 			// Send data to the server
 			jQuery.ajax({
-				url: "https://5qaynwq3ga.execute-api.ap-southeast-2.amazonaws.com/contactformemail",
+				url: "https://5qaynwq3ga.execute-api.ap-southeast-2.amazonaws.com/contactformemail/submit",
 				type: "POST",
 				data: {
 					ajax_name: name,
