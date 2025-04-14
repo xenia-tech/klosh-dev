@@ -1,0 +1,997 @@
+/* Responsive Fixes for Klosh Website
+   This file contains improvements for mobile and tablet displays
+*/
+
+/* Large Desktop Improvements (1025px - 1199px) */
+@media (max-width: 1199px) and (min-width: 1025px) {
+    /* Improve container padding */
+    .container {
+        padding: 0 30px;
+    }
+    
+    /* Adjust hero section spacing */
+    .grax_tm_hero .content {
+        padding: 0 20px;
+    }
+    
+    /* Fix portfolio grid spacing */
+    .grax_tm_portfolio .portfolio_list ul {
+        margin: 0 -15px;
+    }
+    
+    .grax_tm_portfolio .portfolio_list ul li {
+        padding: 0 15px 30px;
+    }
+    
+    /* Improve about section spacing */
+    .grax_tm_about .about_inner {
+        padding: 0;
+    }
+    
+    /* Ensure proper button sizing */
+    .grax_tm_button a {
+        padding: 14px 35px;
+    }
+    
+    /* Fix contact section layout */
+    .grax_tm_contact .contact_inner {
+        padding: 0 15px;
+    }
+}
+
+/* Tablet Improvements (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    /* Improve spacing for tablet */
+    .grax_tm_hero .content {
+        padding: 0 !important;
+        margin-top: -100px; /* Move hero content up by 100px */
+    }
+    
+    /* Fix spacing inside the blue box - remove right side empty space */
+    .hero_left .job,
+    .grax_tm_hero .hero_left .job {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 0 !important;
+    }
+    
+    /* Fix spacing inside the blue box - make details container full width */
+    .grax_tm_hero .details,
+    .hero_left .details {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+    
+    /* Remove right padding from navigation menu */
+    ul.anchor_nav {
+        padding-right: 0 !important;
+    }
+    
+    .grax_tm_about .about_inner {
+        padding: 0 15px;
+    }
+    
+    /* Match desktop settings for portfolio/Our Work section */
+    .grax_tm_portfolio .portfolio_list {
+        width: 100%;
+        padding-top: 40px;
+    }
+    
+    /* Portfolio grid specific settings for tablet */
+    .portfolio_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .portfolio_item {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    /* Remove any extra spacing from links and images, but preserve content padding */
+    .portfolio_link, .portfolio_image {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Override any margin/padding from other breakpoints */
+    .grax_tm_portfolio .container {
+        padding: 0;
+    }
+    
+    /* Set container width to 90% for better tablet proportions */
+    .grax_tm_portfolio .container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+    }
+    
+    /* Improve contact form on tablet */
+    .grax_tm_contact .fields {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .grax_tm_contact .fields form {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .grax_tm_contact .fields form .first ul {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .grax_tm_contact .fields form .first ul li {
+        margin-bottom: 20px !important;
+    }
+    
+    .grax_tm_contact .fields form input,
+    .grax_tm_contact .fields form textarea {
+        padding: 15px !important;
+    }
+    
+    /* Ensure buttons are properly sized */
+    .grax_tm_button a {
+        padding: 12px 30px;
+        display: inline-block;
+    }
+    
+    /* Remove top padding from news_list */
+    #news .news_list,
+    .grax_tm_news .news_list {
+        padding-top: 0 !important;
+    }
+    
+    /* Remove top margin from news list ul */
+    #news .news_list ul,
+    .grax_tm_news .news_list ul {
+        margin-top: 0 !important;
+    }
+    
+    /* Remove top padding from portfolio_list */
+    #portfolio .portfolio_list,
+    .grax_tm_portfolio .portfolio_list {
+        padding-top: 0 !important;
+    }
+    
+    /* Remove bottom margin from paragraphs in contact section */
+    #contact p,
+    .grax_tm_contact p,
+    .contact_inner p {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Target main sections with high specificity */
+    body .grax_tm_all_wrap .grax_tm_section#about .grax_tm_about,
+    body .grax_tm_all_wrap .grax_tm_section#portfolio .grax_tm_portfolio,
+    body .grax_tm_all_wrap .grax_tm_section#news .grax_tm_news,
+    body .grax_tm_all_wrap .grax_tm_section#contact .grax_tm_contact {
+        padding: 100px 0px 0px 0px !important;
+        margin: 0px 0px 0px 0px !important;
+    }
+    
+    /* Remove padding from About Us section container */
+    #about .container {
+        padding: 0 !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Set News section container width to 90% */
+    #news .container {
+        padding: 0 !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Set Portfolio section container width to 90% */
+    #portfolio .container {
+        padding: 0 !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Set Contact section container width to 90% */
+    #contact .container {
+        padding: 0 !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Make contact section display side by side on tablet */
+    #contact .contact_inner {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+    }
+    
+    #contact .contact_inner .left {
+        width: 45% !important;
+        padding-right: 20px !important;
+    }
+    
+    #contact .contact_inner .right {
+        width: 55% !important;
+        padding-left: 20px !important;
+        padding-right: 0px !important;
+    }
+    
+    /* Remove margin and padding from contact inner */
+    .contact_inner, 
+    div.contact_inner {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+    
+    /* Ensure contact_inner has no padding */
+    #contact .contact_inner,
+    body .grax_tm_all_wrap .grax_tm_section#contact .grax_tm_contact .contact_inner {
+        padding: 0px !important;
+    }
+    
+    /* Add 80px bottom margin to section headings */
+    #portfolio .grax_tm_title_holder,
+    #news .grax_tm_title_holder,
+    #contact .grax_tm_title_holder {
+        margin-bottom: 80px !important;
+    }
+}
+
+/* Desktop and tablet styles (769px and above) */
+@media (min-width: 769px) {
+    /* Add 80px bottom margin to About Us section heading */
+    #about .grax_tm_title_holder {
+        margin-bottom: 80px;
+    }
+    
+    /* Remove padding from about_inner for desktop and tablet */
+    .grax_tm_about .about_inner {
+        padding: 0 !important;
+    }
+}
+
+/* Responsive adjustments for panoramic hero images */
+@media (max-width: 1200px) {
+    /* Slightly reduce height for large screens */
+    .hero_image.panoramic {
+        height: 450px;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Further reduce height for tablet */
+    .hero_image.panoramic {
+        height: 350px;
+    }
+    
+    /* Adjust project hero margin for tablet */
+    .project_hero {
+        margin-top: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Significantly reduce height for mobile to show more width */
+    .hero_image.panoramic {
+        height: 200px;
+    }
+    
+    /* Adjust project hero margin for mobile */
+    .project_hero {
+        margin-top: 80px;
+    }
+}
+
+/* Unified Mobile Improvements (up to 768px) */
+@media (max-width: 768px) {
+    /* Global container width and margins */
+    .container {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    /* Fix all sections to have consistent margins */
+    .grax_tm_section {
+        padding: 70px 0;
+        width: 100% !important;
+    }
+    
+    /* Reduce spacing between About and Portfolio sections specifically */
+    #portfolio.grax_tm_section {
+        padding-top: 20px !important; /* Reduced from 70px to 20px */
+    }
+    
+    #about.grax_tm_section {
+        padding-bottom: 20px !important; /* Reduced from 70px to 20px */
+    }
+    
+    .grax_tm_section .container {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Mobile Menu Improvements */
+    .grax_tm_mobile_menu {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .grax_tm_mobile_menu .mobile_menu_inner {
+        padding: 15px 20px !important;
+    }
+    
+    .grax_tm_mobile_menu .mobile_in {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    
+    .grax_tm_mobile_menu .logo img {
+        max-width: 80px !important;
+    }
+    
+    .grax_tm_mobile_menu .trigger {
+        margin-right: 0 !important;
+    }
+    
+    .grax_tm_mobile_menu .dropdown {
+        background-color: #fff !important;
+        padding: 20px !important;
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul li {
+        margin-bottom: 15px !important;
+    }
+    
+    .grax_tm_mobile_menu .dropdown_inner ul li a {
+        font-size: 16px !important;
+        color: #333 !important;
+    }
+    
+    /* Fix hero section specifically */
+    .grax_tm_hero.creative {
+        padding: 0 !important;
+    }
+    
+    .hero_split {
+        flex-direction: column !important;
+        min-height: auto !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Image at top, full width */
+    .hero_right {
+        height: 40vh !important;
+        min-height: 250px !important;
+        order: 1 !important; /* Move image to top */
+    }
+    
+    /* Content below, full width with white background */
+    .hero_left {
+        padding: 40px 5% !important; /* Use percentage padding for consistency */
+        order: 2 !important; /* Move content below image */
+        background-color: #ffffff !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+    
+    /* Center all content */
+    .hero_left .content {
+        text-align: center !important;
+    }
+    
+    /* Adjust hero text size for mobile */
+    .hero_left .name {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Adjust hero description text */
+    .hero_left .job {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 15px auto !important;
+        display: block !important;
+    }
+    
+    /* Ensure button is visible and centered */
+    .hero_left .hero_button {
+        text-align: center !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .hero_left .hero_button a {
+        display: inline-block !important;
+        font-size: 14px !important;
+        margin: 0 auto !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Fix About Us section layout for mobile */
+    .grax_tm_about .about_inner, 
+    div.about_inner {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding-left: 0px !important; /* Remove left padding */
+        padding-right: 0px !important; /* Remove right padding */
+        margin: 0 !important;
+    }
+    
+    .grax_tm_about .about_inner .left {
+        width: 100% !important;
+        padding-right: 0 !important;
+        order: 1 !important; /* Text first */
+        margin-bottom: 30px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    
+    /* Target the text container with a more specific rule */
+    .grax_tm_about .about_inner .left .text {
+        padding: 0px !important;
+    }
+    
+    /* Reset all About Us image-related elements for mobile */
+    .grax_tm_about .about_inner .right {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none !important;
+        display: block !important;
+        order: 2 !important; /* Image below */
+    }
+    
+    /* Force the image to be full width of its container */
+    .grax_tm_about .about_inner .right .image {
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-bottom: 0 !important; /* Ensure no bottom margin */
+    }
+    
+    /* Remove the excessive space after the About section image */
+    .grax_tm_about {
+        margin-bottom: 0 !important; /* Override the 150px margin from style.css */
+    }
+    
+    /* Add padding above the About Us heading */
+    #about .grax_tm_title_holder {
+        padding-top: 70px !important;
+        padding-bottom: 50px !important;
+        margin: 0 !important;
+    }
+    
+    /* Add padding above the Our Work heading */
+    #portfolio .grax_tm_title_holder {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+        margin: 0 !important;
+    }
+    
+    /* Add padding above the Get in Touch heading with same spacing as About Us */
+    #contact .grax_tm_title_holder {
+        padding-top: 70px !important;
+        padding-bottom: 50px !important;
+        margin: 0 !important;
+    }
+    
+    /* Ensure news title holder has proper spacing */
+    #news .grax_tm_title_holder {
+        padding-top: 70px !important;
+        padding-bottom: 60px !important;
+        margin: 0 !important;
+    }
+    
+    /* Make the background div full width of its container */
+    .grax_tm_about .about_inner .right .image .main {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-size: cover !important;
+        background-position: center !important;
+        border-radius: 0 !important;
+    }
+    
+    /* Set the img to be full width but invisible (used for sizing) */
+    .grax_tm_about .about_inner .right .image img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        opacity: 0 !important;
+        min-width: 100% !important;
+    }
+    
+    /* Fix other sections */
+    .grax_tm_about,
+    .grax_tm_portfolio,
+    .grax_tm_services,
+    .grax_tm_testimonials,
+    .grax_tm_news,
+    .grax_tm_contact {
+        width: 100% !important;
+    }
+    
+    /* Improve contact form on mobile */
+    .grax_tm_contact .fields .first ul {
+        display: block;
+    }
+    
+    .grax_tm_contact .fields .first ul li {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    /* Fix button sizing on mobile */
+    .grax_tm_button a {
+        padding: 12px 25px;
+        display: inline-block;
+    }
+    
+    /* Improve spacing for section titles */
+    .grax_tm_title_holder {
+        margin-bottom: 40px;
+    }
+    
+    /* Fix portfolio item spacing */
+    .grax_tm_portfolio .portfolio_list ul li {
+        padding: 0 0 30px;
+    }
+    
+    /* Remove all spacing from portfolio section */
+    .grax_tm_portfolio {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Remove spacing from portfolio list */
+    .grax_tm_portfolio .portfolio_list {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Remove spacing from portfolio grid */
+    .portfolio_grid {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Ensure title holder has proper spacing */
+    #portfolio .grax_tm_title_holder {
+        padding-top: 60px !important;
+    }
+    
+    /* Fix portfolio section spacing */
+    div.portfolio_list {
+        padding: 0px !important; /* Remove the 40px padding */
+    }
+    
+    /* Remove top and bottom spacing from portfolio list */
+    .grax_tm_portfolio .portfolio_list {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Remove padding from the portfolio container */
+    .grax_tm_portfolio {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    
+    /* Fix contact info spacing */
+    .grax_tm_contact .info_list ul li {
+        margin-bottom: 25px;
+    }
+    
+    /* Fix any animation issues */
+    .fn_animation .fn_animation_item,
+    .fn_animation .job,
+    .fn_animation .name {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        animation: none !important;
+    }
+    
+    /* Correctly target the hero button margin */
+    body .grax_tm_all_wrap .grax_tm_hero.mobile-hero-spacing-fix-march2025 .hero_left .hero_button {
+        margin-top: 40px !important; /* Set to 40px as requested */
+    }
+    
+    /* Target the job div and reduce its bottom margin */
+    body .grax_tm_all_wrap .grax_tm_hero.mobile-hero-spacing-fix-march2025 .hero_left .job {
+        margin-bottom: 0px !important; /* Set to 0px as requested */
+    }
+    
+    /* Reduce only the bottom padding of the hero_left section */
+    body .grax_tm_all_wrap .grax_tm_hero.mobile-hero-spacing-fix-march2025 .hero_left,
+    div.hero_left {
+        padding-bottom: 20px !important; /* Reduced bottom padding only */
+    }
+    
+    /* Remove padding from the news section */
+    #news.grax_tm_section {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Remove padding from the news list */
+    .grax_tm_news .news_list {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Remove padding from div.grax_tm_news */
+    div.grax_tm_news {
+        padding: 0 !important;
+    }
+    
+    /* Target the news section element */
+    #news .grax_tm_section {
+        padding: 0 !important;
+    }
+    
+    /* Ensure news title holder has proper spacing */
+    #news .grax_tm_title_holder {
+        padding-top: 70px !important;
+        padding-bottom: 60px !important;
+        margin-bottom: 0px !important;
+    }
+    
+    /* Target the news section with all possible selectors to ensure padding is removed */
+    #news, 
+    #news.grax_tm_section,
+    div#news.grax_tm_section,
+    .grax_tm_section#news,
+    #news div.grax_tm_news,
+    div#news div.grax_tm_news {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Target all section elements on mobile */
+    .grax_tm_section {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    
+    /* Remove top padding from contact inner */
+    .contact_inner,
+    div.contact_inner,
+    .grax_tm_contact .contact_inner {
+        padding-top: 0 !important;
+    }
+    
+    /* Remove bottom margin from paragraph in contact section */
+    .grax_tm_contact .left .text p {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Mobile News Slider - Enhanced */
+    .news_list {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        padding: 0 15px !important;
+    }
+    
+    .news_list::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .news_list ul {
+        display: flex !important;
+        grid-template-columns: none !important;
+        gap: 15px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: auto !important;
+    }
+    
+    .news_list ul li {
+        min-width: 85% !important;
+        width: 85% !important;
+        flex: 0 0 auto !important;
+        scroll-snap-align: center;
+        padding: 0 !important;
+        margin-right: 5px !important;
+    }
+    
+    .news_list ul li .list_inner {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .news_list ul li .image {
+        height: 200px !important;
+    }
+    
+    .news_list ul li .details {
+        padding: 15px !important;
+    }
+    
+    .news_list ul li .details .title {
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .news_list ul li .details .date {
+        font-size: 12px !important;
+    }
+    
+    .slider-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        gap: 10px;
+    }
+    
+    .slider-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .slider-dot.active {
+        background-color: #000;
+        transform: scale(1.2);
+    }
+    
+    /* Mobile footer text size and line height adjustments */
+    .grax_tm_footer p,
+    .grax_tm_footer .copyright,
+    .grax_tm_footer .privacy_policy a {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Simple mobile-only line break solution */
+    .mobile-break {
+        display: block !important;
+    }
+    
+    /* Reduce space between social media icons by 25% */
+    .grax_tm_footer .social_icons {
+        gap: 15px !important;
+    }
+    
+    /* Increase footer top margin */
+    .grax_tm_footer {
+        margin-top: 90px !important;
+    }
+}
+
+/* Desktop Section Padding Adjustment (over 1024px) */
+@media (min-width: 1025px) {
+    /* Reduce section top padding from 130px to 100px */
+    .grax_tm_about {
+        padding-top: 100px !important;
+    }
+    
+    .grax_tm_portfolio {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+    }
+    
+    .grax_tm_news {
+        padding-top: 100px !important;
+        padding-bottom: 90px !important;
+    }
+    
+    .grax_tm_contact {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+    }
+    
+    /* Remove margin from portfolio grid */
+    .portfolio_grid {
+        margin-top: 0 !important;
+    }
+    
+    /* Remove padding from portfolio list */
+    .grax_tm_portfolio .portfolio_list {
+        padding-top: 0 !important;
+    }
+    
+    /* Add padding below the Our Work heading */
+    h3#portfolio-heading {
+        margin-bottom: 80px !important;
+    }
+    
+    /* Add padding below the Latest News heading */
+    .grax_tm_news .grax_tm_title_holder h3 {
+        margin-bottom: 80px !important;
+    }
+    
+    /* Add padding below the Get in Touch heading */
+    .grax_tm_contact .grax_tm_title_holder h3 {
+        margin-bottom: 80px !important;
+    }
+    
+    /* Remove padding from news list */
+    .grax_tm_news .news_list {
+        padding-top: 0 !important;
+    }
+    
+    /* Remove padding from contact_inner for desktop */
+    #contact .contact_inner,
+    body .grax_tm_all_wrap .grax_tm_section#contact .grax_tm_contact .contact_inner {
+        padding: 0px !important;
+    }
+    
+    /* Fix contact inner padding and margin at all desktop sizes */
+    .grax_tm_contact .contact_inner,
+    div.contact_inner {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+}
+
+/* Desktop-specific section width settings (≥1025px) */
+@media (min-width: 1025px) {
+    /* Apply 90% width with max-width of 1200px to all main sections on the homepage */
+    .grax_tm_section .container {
+        width: 90%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Adjust hero heading, text, and button position */
+    body .grax_tm_all_wrap .grax_tm_hero .details {
+        top: calc(50% - 200px) !important;
+    }
+}
+
+/* Override for 1200px breakpoint specifically */
+@media (min-width: 1200px) and (max-width: 1200px) {
+    /* Reset any 1200px-specific styles for contact section */
+    .grax_tm_contact .contact_inner,
+    div.contact_inner {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+}
+
+/* Extra small devices (under 480px) */
+@media (max-width: 480px) {
+    /* Further reduce hero text size for very small screens */
+    .hero_left .name {
+        font-size: 24px !important;
+    }
+    
+    .hero_left .job {
+        font-size: 14px !important;
+    }
+    
+    /* Ensure button is properly sized */
+    .hero_left .hero_button a {
+        font-size: 13px !important;
+        padding: 8px 16px !important;
+    }
+    
+    /* Adjust spacing for very small screens */
+    .grax_tm_section {
+        padding: 60px 0;
+    }
+}
+
+/* Small screen adjustments (under 480px) */
+@media (max-width: 480px) {
+    /* Adjust spacing for very small screens */
+    .grax_tm_section {
+        padding: 60px 0;
+    }
+    
+    /* Fix button text size */
+    .grax_tm_button a {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+/* Override any conflicting hero styles */
+.grax_tm_hero .job,
+.grax_tm_hero .content .details .job {
+    color: #333333 !important;
+    font-size: 20px !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Fix for contact form on all devices */
+.grax_tm_contact .fields .returnmessage,
+.grax_tm_contact .fields .empty_notice {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.grax_tm_contact .fields .returnmessage {
+    /* Removing the background color */
+    /* background-color: rgba(0, 128, 0, 0.1); */
+    color: green;
+    display: none; /* Hide by default, only show when there's a message */
+}
+
+.grax_tm_contact .fields .empty_notice {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+}
+
+/* Fix for buttons to ensure they're clickable */
+.grax_tm_button a {
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+}
+
+/* Fix for portfolio images to ensure proper sizing */
+.grax_tm_portfolio .portfolio_list ul li .image {
+    overflow: hidden;
+}
+
+/* Reduce space between social media icons by 25% */
+.grax_tm_footer .social_icons {
+    gap: 15px !important;
+}

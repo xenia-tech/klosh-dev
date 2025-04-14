@@ -1,0 +1,125 @@
+/* Portfolio Grid Layout
+   - Uses CSS Grid for responsive layout
+   - Includes gap spacing and top margin for section spacing
+*/
+.portfolio_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Individual Portfolio Item Container
+   - Adds subtle hover animation
+   - Uses border radius for rounded corners
+   - Includes transition for smooth hover effect
+*/
+.portfolio_item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+/* Full-width Portfolio Item
+   - Spans both columns in grid
+   - Used for featured projects
+*/
+.portfolio_item.large {
+    grid-column: span 2;
+}
+
+/* Image Container with 16:9 Aspect Ratio
+   - Uses aspect-ratio for responsive scaling
+   - Maintains aspect ratio across screen sizes
+*/
+.portfolio_image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+/* Portfolio Image Styling
+   - Uses object-fit for proper image scaling
+   - Includes hover transition effect
+*/
+.portfolio_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Portfolio Content Area
+   - Contains title and description
+   - Uses consistent padding
+*/
+.portfolio_content {
+    padding: 20px;
+}
+
+/* Portfolio Title Styling
+   - Uses larger font size for emphasis
+   - Includes bottom margin for spacing
+*/
+.portfolio_title {
+    font-size: 1.4em;
+    margin: 0 0 10px 0;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+/* Portfolio Description Text
+   - Uses comfortable reading font size
+*/
+.portfolio_desc {
+    font-size: 0.95em;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Portfolio More Text
+   - Uses smaller font size for secondary text
+   - Includes uppercase text for emphasis
+*/
+.portfolio_more {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+/* Portfolio Item Hover Effect
+   - Translates item upwards on hover
+   - Scales image for subtle zoom effect
+*/
+.portfolio_item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio_item:hover .portfolio_image img {
+    transform: scale(1.05);
+}
+
+.portfolio_item:hover .portfolio_title {
+    color: #39FF14;
+}
+
+/* Responsive Layout Adjustments
+   - Adjusts grid layout for smaller screen sizes
+*/
+@media screen and (max-width: 768px) {
+    .portfolio_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio_item.large {
+        grid-column: span 1;
+    }
+}
