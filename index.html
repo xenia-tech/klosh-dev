@@ -282,7 +282,7 @@
                     </div>
                     <div class="right wow fadeInRight" data-wow-duration="1.5s">
                         <div class="fields">
-                            <form action="https://5qaynwq3ga.execute-api.ap-southeast-2.amazonaws.com/contactformemail/submit" method="post" class="contact_form" id="contact_form">
+                            <form action="https://formsubmit.co/martin@klosh.co.uk" method="POST" class="contact_form" id="contact_form">
                                 <h4 id="contact-form-heading" class="visually-hidden">Contact Form</h4>
                                 <div class="returnmessage" role="alert" aria-live="polite" data-success="Your message has been received, We will contact you soon."></div>
                                 <div class="empty_notice" role="alert"><span>Please Fill Required Fields</span></div>
@@ -290,18 +290,27 @@
                                     <ul>
                                         <li>
                                             <label for="name" class="visually-hidden">Name</label>
-                                            <input id="name" type="text" placeholder="Name" required aria-required="true" minlength="2" maxlength="50">
+                                            <input id="name" name="name" type="text" placeholder="Name" required aria-required="true" minlength="2" maxlength="50">
                                         </li>
                                         <li>
                                             <label for="email" class="visually-hidden">Email</label>
-                                            <input id="email" type="email" placeholder="Email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                            <input id="email" name="email" type="email" placeholder="Email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="last">
                                     <label for="message" class="visually-hidden">Message</label>
-                                    <textarea id="message" placeholder="Message" required aria-required="true" minlength="10" maxlength="1000"></textarea>
+                                    <textarea id="message" name="message" placeholder="Message" required aria-required="true" minlength="10" maxlength="1000"></textarea>
                                 </div>
+                                
+                                <!-- FormSubmit Configuration -->
+                                <input type="hidden" name="_subject" value="New Contact Form Submission - Klosh Website">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="hidden" name="_next" value="https://klosh.co.uk/#contact">
+                                <input type="hidden" name="_autoresponse" value="Thank you for contacting Klosh. We have received your message and will get back to you shortly.">
+                                <input type="hidden" name="_cc" value="will@klosh.co.uk,martin.yourdev@gmail.com">
+                                
                                 <div class="grax_tm_button" data-color="dark">
                                     <a id="send_message" href="#" role="button" aria-label="Send your message">Send Message</a>
                                 </div>

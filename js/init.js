@@ -542,13 +542,15 @@ function grax_tm_contact_form(){
 	
 	"use strict";
 	
-	jQuery(".contact_form #send_message").on('click', function(){
+	jQuery(".contact_form #send_message").on('click', function(e){
+		e.preventDefault();
 		
-		var name 		= jQuery(".contact_form #name").val();
-		var email 		= jQuery(".contact_form #email").val();
-		var message 	= jQuery(".contact_form #message").val();
-		var subject 	= jQuery(".contact_form #subject").val();
-		var success     = jQuery(".contact_form .returnmessage").data('success');
+		var form = jQuery("#contact_form");
+		var formAction = form.attr("action");
+		var name = jQuery(".contact_form #name").val();
+		var email = jQuery(".contact_form #email").val();
+		var message = jQuery(".contact_form #message").val();
+		var success = jQuery(".contact_form .returnmessage").data('success');
 	
 		jQuery(".contact_form .returnmessage").empty().removeClass('show'); //To empty previous error/success message.
 		
@@ -571,43 +573,48 @@ function grax_tm_contact_form(){
 			jQuery("#send_message").text("Sending...");
 			jQuery("#send_message").css("opacity", "0.5");
 			
-			// Send data to the server
-			jQuery.ajax({
-				url: "https://5qaynwq3ga.execute-api.ap-southeast-2.amazonaws.com/contactformemail/submit",
-				type: "POST",
-				data: {
-					ajax_name: name,
-					ajax_email: email,
-					ajax_message: message,
-					ajax_subject: subject
-				},
-				dataType: "json",
-				success: function(response) {
-					// Reset button
-					jQuery("#send_message").text("Send Message");
-					jQuery("#send_message").css("opacity", "1");
-					
-					if (response.success) {
-						// Success message
-						jQuery(".contact_form .returnmessage").append("<span class='contact_success'>" + response.message + "</span>").addClass('show');
-						jQuery(".contact_form .returnmessage").slideDown(500).delay(4000).slideUp(500);
-						
-						// Reset form
-						jQuery("#contact_form")[0].reset();
-					} else {
-						// Error message
-						jQuery(".contact_form .returnmessage").append("<span class='contact_error'>" + response.message + "</span>").addClass('show');
-						jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);
-					}
-				},
-				error: function(xhr, status, error) {
-					// Handle AJAX failure
-					jQuery("#send_message").text("Send Message");
-					jQuery("#send_message").css("opacity", "1");
-					jQuery(".contact_form .returnmessage").append("<span class='contact_error'>* Server error: Could not send message *</span>").addClass('show');
-					jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);
-					console.error("AJAX Error:", status, error);
+			// Create form data object
+			var formData = new FormData();
+			formData.append('name', name);
+			formData.append('email', email);
+			formData.append('message', message);
+			formData.append('_subject', 'New Contact Form Submission - Klosh Website');
+			formData.append('_template', 'table');
+			formData.append('_captcha', 'false');
+			
+			// Send data using fetch API
+			fetch(formAction, {
+				method: 'POST',
+				body: formData,
+				headers: {
+					'Accept': 'application/json'
 				}
+			})
+			.then(response => {
+				// Reset button
+				jQuery("#send_message").text("Send Message");
+				jQuery("#send_message").css("opacity", "1");
+				
+				if (response.ok) {
+					// Success message
+					jQuery(".contact_form .returnmessage").append("<span class='contact_success'>Your message has been sent successfully. We will contact you soon.</span>").addClass('show');
+					jQuery(".contact_form .returnmessage").slideDown(500).delay(4000).slideUp(500);
+					
+					// Reset form
+					jQuery("#contact_form")[0].reset();
+				} else {
+					// Error message
+					jQuery(".contact_form .returnmessage").append("<span class='contact_error'>Something went wrong. Please try again later.</span>").addClass('show');
+					jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);
+				}
+			})
+			.catch(error => {
+				// Handle fetch failure
+				jQuery("#send_message").text("Send Message");
+				jQuery("#send_message").css("opacity", "1");
+				jQuery(".contact_form .returnmessage").append("<span class='contact_error'>* Server error: Could not send message *</span>").addClass('show');
+				jQuery(".contact_form .returnmessage").slideDown(500).delay(2000).slideUp(500);
+				console.error("Fetch Error:", error);
 			});
 		}
 		return false; 
